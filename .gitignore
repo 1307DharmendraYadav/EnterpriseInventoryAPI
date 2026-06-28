@@ -1,0 +1,34 @@
+## Ignore Visual Studio temporary files
+.vs/
+
+## Build folders
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+
+## Logs
+*.log
+
+## Test Results
+TestResults/
+
+## NuGet packages
+packages/
+
+## Publish output
+publish/
+
+## EF LocalDB
+*.mdf
+*.ldf

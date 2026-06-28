@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="EnterpriseInventory.API/EnterpriseInventory.API.csproj" />
+  <Project Path="EnterpriseInventory.Application/EnterpriseInventory.Application.csproj" />
+  <Project Path="EnterpriseInventory.Domain/EnterpriseInventory.Domain.csproj" />
+  <Project Path="EnterpriseInventory.Infrastructure/EnterpriseInventory.Infrastructure.csproj" />
+  <Project Path="EnterpriseInventory.IntegrationTests/EnterpriseInventory.IntegrationTests.csproj" />
+  <Project Path="EnterpriseInventory.Shared/EnterpriseInventory.Shared.csproj" />
+  <Project Path="EnterpriseInventory.UnitTests/EnterpriseInventory.UnitTests.csproj" />
+</Solution>
