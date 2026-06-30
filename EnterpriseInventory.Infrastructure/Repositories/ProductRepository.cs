@@ -46,4 +46,16 @@ public class ProductRepository : IProductRepository
 
         await _context.SaveChangesAsync();
     }
+    public async Task<bool> ExistsByNameAsync(string name)
+    {
+        name = name.Trim();
+
+        return await _context.Products
+            .AnyAsync(p => p.Name == name);
+    }
+    public async Task<bool> ExistsByNameExcludingIdAsync(string name, int id)
+    {
+        return await _context.Products
+            .AnyAsync(p => p.Name == name && p.Id != id);
+    }
 }

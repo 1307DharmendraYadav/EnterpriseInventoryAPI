@@ -60,7 +60,7 @@ namespace EnterpriseInventory.API.Controllers
                     HttpContext.TraceIdentifier));
         }
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id,CreateProductRequest request)
+        public async Task<IActionResult> Update(int id,UpdateProductRequest request)
         {
             await _productService.UpdateAsync(id, request);
 
@@ -83,14 +83,6 @@ namespace EnterpriseInventory.API.Controllers
                     statusCode: StatusCodes.Status200OK,
                     traceId: HttpContext.TraceIdentifier
                 ));
-        }
-
-        [HttpGet("GetInMemory")]
-        public async Task<IActionResult> GetInMemory()
-        {
-            var products = await _productService.GetAllInMemoryAsync();
-
-            return Ok(products);
         }
     }
 }

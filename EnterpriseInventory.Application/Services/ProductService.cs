@@ -14,23 +14,18 @@ public class ProductService : IProductService
     {
         _repository = repository;
     }
-
     public async Task<ProductResponse> CreateAsync(CreateProductRequest request)
     {
-        // Business Validation
-        if (string.IsNullOrWhiteSpace(request.Name))
-            throw new ValidationException("Product name is required.");
+        var productName = request.Name.Trim();
 
-        if (request.Price <= 0)
-            throw new ValidationException("Price must be greater than zero.");
-
-        if (request.Quantity < 0)
-            throw new ValidationException("Quantity cannot be negative.");
+        // Business Rule
+        if (await _repository.ExistsByNameAsync(productName))
+            throw new ConflictException($"Product '{productName}' already exists.");
 
         // DTO -> Entity
         var product = new Product
         {
-            Name = request.Name.Trim(),
+            Name = productName,
             Price = request.Price,
             Quantity = request.Quantity
         };
@@ -47,6 +42,7 @@ public class ProductService : IProductService
             Quantity = createdProduct.Quantity
         };
     }
+
 
     public async Task<IEnumerable<ProductResponse>> GetAllAsync()
     {
@@ -79,30 +75,22 @@ public class ProductService : IProductService
         };
     }
 
-    public async Task UpdateAsync(int id, CreateProductRequest request)
+    public async Task UpdateAsync(int id, UpdateProductRequest request)
     {
-        // Ensure the incoming request satisfies business rules.
-        if (string.IsNullOrWhiteSpace(request.Name))
-            throw new ValidationException("Product name is required.");
+        var productName = request.Name.Trim();
 
-        if (request.Price <= 0)
-            throw new ValidationException("Price must be greater than zero.");
-
-        if (request.Quantity < 0)
-            throw new ValidationException("Quantity cannot be negative.");
-
-        // Load existing entity
         var product = await _repository.GetByIdAsync(id);
 
         if (product is null)
             throw new NotFoundException($"Product with Id {id} was not found.");
 
-        // Update only allowed fields
-        product.Name = request.Name.Trim();
+        if (await _repository.ExistsByNameExcludingIdAsync(productName, id))
+            throw new ConflictException($"Product '{productName}' already exists.");
+
+        product.Name = productName;
         product.Price = request.Price;
         product.Quantity = request.Quantity;
 
-        // Save
         await _repository.UpdateAsync(product);
     }
 
@@ -118,47 +106,4 @@ public class ProductService : IProductService
         // Delete the product
         await _repository.DeleteAsync(product);
     }
-    //public async Task<IEnumerable<ProductDto>> GetAllAsync()
-    //{
-    //    var products = await _repository.GetAllAsync();
-
-    //    return products.Select(product => new ProductDto
-    //    {
-    //        Id = product.Id,
-    //        Name = product.Name,
-    //        Price = product.Price,
-    //        Quantity = product.Quantity
-    //    });
-    //}
-
-    public Task<IEnumerable<ProductDto>> GetAllInMemoryAsync()
-    {
-        var products = new List<ProductDto>
-        {
-            new()
-            {
-                Id = 1,
-                Name = "Laptop",
-                Price = 65000,
-                Quantity = 10
-            },
-            new()
-            {
-                Id = 2,
-                Name = "Keyboard",
-                Price = 1500,
-                Quantity = 50
-            },
-            new()
-            {
-                Id = 3,
-                Name = "Mouse",
-                Price = 700,
-                Quantity = 80
-            }
-        };
-
-        return Task.FromResult(products.AsEnumerable());
-    }
-
 }
