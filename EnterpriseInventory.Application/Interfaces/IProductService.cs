@@ -10,8 +10,7 @@ public interface IProductService
 
     Task<ProductResponse> CreateAsync(CreateProductRequest request);
 
-    Task UpdateAsync(int id, CreateProductRequest request);
+    Task UpdateAsync(int id, UpdateProductRequest request);
 
     Task DeleteAsync(int id);
-    Task<IEnumerable<ProductDto>> GetAllInMemoryAsync();
 }

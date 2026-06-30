@@ -16,5 +16,8 @@ namespace EnterpriseInventory.Application.Interfaces.Repositories
         Task UpdateAsync(Product product);
 
         Task DeleteAsync(Product product);
+
+        Task<bool> ExistsByNameAsync(string name);
+        Task<bool> ExistsByNameExcludingIdAsync(string name, int id);
     }
 }
