@@ -1,10 +1,12 @@
 using EnterpriseInventory.API.Middleware;
 using EnterpriseInventory.Application.Interfaces;
+using EnterpriseInventory.Application.Mappings;
 using EnterpriseInventory.Application.Services;
 using EnterpriseInventory.Application.Validators;
 using EnterpriseInventory.Infrastructure.DependencyInjection;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +16,16 @@ builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateProductRequestValidator>();
 
+//Automapper
+builder.Services.AddAutoMapper(
+    cfg => { },
+    typeof(ProductProfile).Assembly);
+
 // Dependency Injection
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
