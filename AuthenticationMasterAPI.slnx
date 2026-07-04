@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="EnterpriseInventory.API/EnterpriseInventory.API.csproj" />
   <Project Path="EnterpriseInventory.Application/EnterpriseInventory.Application.csproj" />
   <Project Path="EnterpriseInventory.Domain/EnterpriseInventory.Domain.csproj" />

@@ -3,95 +3,72 @@ using EnterpriseInventory.Application.Exceptions;
 using EnterpriseInventory.Application.Interfaces;
 using EnterpriseInventory.Application.Interfaces.Repositories;
 using EnterpriseInventory.Domain.Entities;
-
+using AutoMapper;
 namespace EnterpriseInventory.Application.Services;
+
 
 public class ProductService : IProductService
 {
     private readonly IProductRepository _repository;
+    private readonly IMapper _mapper;
 
-    public ProductService(IProductRepository repository)
+    public ProductService(IProductRepository repository, IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
     public async Task<ProductResponse> CreateAsync(CreateProductRequest request)
     {
         var productName = request.Name.Trim();
 
-        // Business Rule
         if (await _repository.ExistsByNameAsync(productName))
             throw new ConflictException($"Product '{productName}' already exists.");
 
-        // DTO -> Entity
-        var product = new Product
-        {
-            Name = productName,
-            Price = request.Price,
-            Quantity = request.Quantity
-        };
+        var product = _mapper.Map<Product>(request);
 
-        // Save
         var createdProduct = await _repository.AddAsync(product);
 
-        // Entity -> DTO
-        return new ProductResponse
-        {
-            Id = createdProduct.Id,
-            Name = createdProduct.Name,
-            Price = createdProduct.Price,
-            Quantity = createdProduct.Quantity
-        };
+        return _mapper.Map<ProductResponse>(createdProduct);
     }
 
 
     public async Task<IEnumerable<ProductResponse>> GetAllAsync()
     {
         var products = await _repository.GetAllAsync();
-
-        return products.Select(product => new ProductResponse
-        {
-            Id = product.Id,
-            Name = product.Name,
-            Price = product.Price,
-            Quantity = product.Quantity
-        });
+        return _mapper.Map<IEnumerable<ProductResponse>>(products);
     }
 
-    public async Task<ProductResponse?> GetByIdAsync(int id)
+    public async Task<ProductResponse> GetByIdAsync(int id)
     {
         var product = await _repository.GetByIdAsync(id);
 
         if (product is null)
-        {
             throw new NotFoundException($"Product with Id {id} was not found.");
-        }
 
-        return new ProductResponse
-        {
-            Id = product.Id,
-            Name = product.Name,
-            Price = product.Price,
-            Quantity = product.Quantity
-        };
+        return _mapper.Map<ProductResponse>(product);
     }
 
-    public async Task UpdateAsync(int id, UpdateProductRequest request)
+    public async Task<ProductResponse> UpdateAsync(int id,UpdateProductRequest request)
     {
         var productName = request.Name.Trim();
 
         var product = await _repository.GetByIdAsync(id);
 
         if (product is null)
-            throw new NotFoundException($"Product with Id {id} was not found.");
+            throw new NotFoundException(
+                $"Product with Id {id} was not found.");
 
         if (await _repository.ExistsByNameExcludingIdAsync(productName, id))
-            throw new ConflictException($"Product '{productName}' already exists.");
+            throw new ConflictException(
+                $"Product '{productName}' already exists.");
 
-        product.Name = productName;
-        product.Price = request.Price;
-        product.Quantity = request.Quantity;
+        request.Name = productName;
+
+        _mapper.Map(request, product);
 
         await _repository.UpdateAsync(product);
+
+        return _mapper.Map<ProductResponse>(product);
     }
 
     public async Task DeleteAsync(int id)

@@ -1,4 +1,5 @@
-﻿using EnterpriseInventory.Application.Interfaces.Repositories;
+﻿using EnterpriseInventory.Application.DTOs;
+using EnterpriseInventory.Application.Interfaces.Repositories;
 using EnterpriseInventory.Domain.Entities;
 using EnterpriseInventory.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
@@ -35,7 +36,8 @@ public class ProductRepository : IProductRepository
 
     public async Task UpdateAsync(Product product)
     {
-        _context.Products.Update(product);
+        //if we tracked the entity, we can just call SaveChangesAsync, but if we are not tracking it, we need to update it first
+        /*.Products.Update(product)*/;
 
         await _context.SaveChangesAsync();
     }

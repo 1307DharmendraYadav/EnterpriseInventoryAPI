@@ -1,7 +1,4 @@
 ﻿using EnterpriseInventory.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EnterpriseInventory.Application.Interfaces.Repositories
 {
@@ -18,6 +15,7 @@ namespace EnterpriseInventory.Application.Interfaces.Repositories
         Task DeleteAsync(Product product);
 
         Task<bool> ExistsByNameAsync(string name);
+
         Task<bool> ExistsByNameExcludingIdAsync(string name, int id);
     }
 }
