@@ -1,11 +1,11 @@
-﻿using EnterpriseInventory.Application.DTOs;
+﻿using AutoMapper;
+using EnterpriseInventory.Application.DTOs;
 using EnterpriseInventory.Application.Exceptions;
 using EnterpriseInventory.Application.Interfaces;
 using EnterpriseInventory.Application.Interfaces.Repositories;
 using EnterpriseInventory.Domain.Entities;
-using AutoMapper;
-namespace EnterpriseInventory.Application.Services;
 
+namespace EnterpriseInventory.Application.Services;
 
 public class ProductService : IProductService
 {
@@ -17,12 +17,18 @@ public class ProductService : IProductService
         _repository = repository;
         _mapper = mapper;
     }
+
     public async Task<ProductResponse> CreateAsync(CreateProductRequest request)
     {
         var productName = request.Name.Trim();
 
         if (await _repository.ExistsByNameAsync(productName))
-            throw new ConflictException($"Product '{productName}' already exists.");
+            throw new ConflictException(
+                $"Product '{productName}' already exists.");
+
+        // Store the normalized product name instead of the
+        // original value containing leading or trailing spaces.
+        request.Name = productName;
 
         var product = _mapper.Map<Product>(request);
 
@@ -31,10 +37,10 @@ public class ProductService : IProductService
         return _mapper.Map<ProductResponse>(createdProduct);
     }
 
-
     public async Task<IEnumerable<ProductResponse>> GetAllAsync()
     {
         var products = await _repository.GetAllAsync();
+
         return _mapper.Map<IEnumerable<ProductResponse>>(products);
     }
 
@@ -43,12 +49,13 @@ public class ProductService : IProductService
         var product = await _repository.GetByIdAsync(id);
 
         if (product is null)
-            throw new NotFoundException($"Product with Id {id} was not found.");
+            throw new NotFoundException(
+                $"Product with Id {id} was not found.");
 
         return _mapper.Map<ProductResponse>(product);
     }
 
-    public async Task<ProductResponse> UpdateAsync(int id,UpdateProductRequest request)
+    public async Task<ProductResponse> UpdateAsync(int id, UpdateProductRequest request)
     {
         var productName = request.Name.Trim();
 
@@ -78,7 +85,8 @@ public class ProductService : IProductService
 
         // Business decision
         if (product is null)
-            throw new NotFoundException($"Product with Id {id} was not found.");
+            throw new NotFoundException(
+                $"Product with Id {id} was not found.");
 
         // Delete the product
         await _repository.DeleteAsync(product);
