@@ -16,7 +16,7 @@ public static class InfrastructureServiceRegistration
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlServer(
-                configuration.GetConnectionString("DefaultConnection"));
+                configuration.GetConnectionString("EnterpriseInventoryDb"));
         });
 
         services.AddScoped<IProductRepository, ProductRepository>();

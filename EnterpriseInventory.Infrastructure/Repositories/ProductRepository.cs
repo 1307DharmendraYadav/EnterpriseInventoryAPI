@@ -1,5 +1,4 @@
-﻿using EnterpriseInventory.Application.DTOs;
-using EnterpriseInventory.Application.Interfaces.Repositories;
+﻿using EnterpriseInventory.Application.Interfaces.Repositories;
 using EnterpriseInventory.Domain.Entities;
 using EnterpriseInventory.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;

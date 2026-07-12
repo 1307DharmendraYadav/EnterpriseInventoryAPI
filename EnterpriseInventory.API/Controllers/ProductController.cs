@@ -1,5 +1,4 @@
 ﻿using EnterpriseInventory.API.Helpers;
-using EnterpriseInventory.Application.Common;
 using EnterpriseInventory.Application.DTOs;
 using EnterpriseInventory.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -59,20 +58,22 @@ namespace EnterpriseInventory.API.Controllers
                     StatusCodes.Status200OK,
                     HttpContext.TraceIdentifier));
         }
+
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id,UpdateProductRequest request)
         {
-            await _productService.UpdateAsync(id, request);
+            var product = await _productService.UpdateAsync(id, request);
 
             return Ok(
                 ApiResponseFactory.Success(
-                    data: (object?)null,
+                    data: product,
                     message: "Product updated successfully.",
                     statusCode: StatusCodes.Status200OK,
                     traceId: HttpContext.TraceIdentifier));
         }
 
-        [HttpDelete]
+
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _productService.DeleteAsync(id);

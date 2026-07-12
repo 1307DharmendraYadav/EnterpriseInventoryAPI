@@ -1,10 +1,14 @@
-﻿using EnterpriseInventory.Application.Common;
+﻿using EnterpriseInventory.API.Models;
 
 namespace EnterpriseInventory.API.Helpers;
 
 public static class ApiResponseFactory
 {
-    public static ApiResponse<T> Success<T>(T data,string message,int statusCode,string traceId)
+    public static ApiResponse<T> Success<T>(
+        T data,
+        string message,
+        int statusCode,
+        string traceId)
     {
         return new ApiResponse<T>
         {
