@@ -1,13 +1,11 @@
 using EnterpriseInventory.API.Middleware;
-using EnterpriseInventory.Application.Interfaces;
+using EnterpriseInventory.Application.DependencyInjection;
 using EnterpriseInventory.Application.Mappings;
-using EnterpriseInventory.Application.Services;
 using EnterpriseInventory.Application.Validators;
 using EnterpriseInventory.Infrastructure.DependencyInjection;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Serilog;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,13 +18,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Use this approach when Serilog configuration is not defined
 // in appsettings.json.
 //
-//Log.Logger = new LoggerConfiguration()
-//    .MinimumLevel.Information()
-//    .WriteTo.Console()
-//    .WriteTo.File(
-//        "logs/log-.txt",
-//        rollingInterval: RollingInterval.Day)
-//    .CreateLogger();
+// Log.Logger = new LoggerConfiguration()
+//     .MinimumLevel.Information()
+//     .WriteTo.Console()
+//     .WriteTo.File(
+//         "logs/log-.txt",
+//         rollingInterval: RollingInterval.Day)
+//     .CreateLogger();
 
 // Option 2: Read Serilog configuration from appsettings.json.
 // This keeps logging configuration outside the application code
@@ -49,27 +47,34 @@ builder.Services.AddControllers();
 
 // FluentValidation
 // Enables automatic validation of incoming request models.
+// NOTE:
+// FluentValidation integrates with ASP.NET Core MVC,
+// therefore its registration belongs in the API project.
 builder.Services.AddFluentValidationAutoValidation();
 
-// Registers validators from the assembly containing
-// CreateProductRequestValidator.
+// Registers validators from the Application assembly.
 builder.Services.AddValidatorsFromAssemblyContaining<CreateProductRequestValidator>();
 
 
 // AutoMapper
-// Registers AutoMapper profiles from the assembly containing ProductProfile.
+// Registers all AutoMapper profiles from the Application assembly.
+// NOTE:
+// The mapping profiles live in the Application project,
+// but the DI registration belongs to the API composition root.
 builder.Services.AddAutoMapper(
     cfg => { },
     typeof(ProductProfile).Assembly);
 
 
-// Application Services
-// Registers application service implementations with the DI container.
-builder.Services.AddScoped<IProductService, ProductService>();
+// Application Layer
+// Registers all application services
+// (ProductService, AuthService, etc.)
+builder.Services.AddApplicationServices();
 
 
-// Infrastructure Services
-// Registers infrastructure dependencies such as DbContext and repositories.
+// Infrastructure Layer
+// Registers DbContext, repositories, password hasher,
+// and other infrastructure services.
 builder.Services.AddInfrastructure(builder.Configuration);
 
 
