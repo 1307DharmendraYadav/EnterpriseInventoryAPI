@@ -40,10 +40,7 @@ namespace EnterpriseInventory.API.Controllers
                 StatusCodes.Status201Created,
                 HttpContext.TraceIdentifier);
 
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = product.Id },
-                response);
+            return CreatedAtAction(nameof(GetById),new { id = product.Id },response);
         }
 
         [HttpGet("{id:int}")]

@@ -1,0 +1,9 @@
+﻿using EnterpriseInventory.Application.Features.Authentication.DTOs;
+
+namespace EnterpriseInventory.Application.Features.Authentication.Interfaces
+{
+    public interface IAuthService
+    {
+        Task<RegisterResponse> RegisterAsync(RegisterRequest request);
+    }
+}
