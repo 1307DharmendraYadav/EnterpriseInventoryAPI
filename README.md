@@ -5,9 +5,9 @@
 
 > **A production-inspired ASP.NET Core 10.0 Web API built using Clean Architecture, Entity Framework Core, SQL Server, FluentValidation, AutoMapper, Serilog, and enterprise software engineering best practices.**
 
-![.NET](https://img.shields.io/badge/.NET-9.0-purple)
-![ASP.NET Core](https://img.shields.io/badge/ASP.NET-Core-blue)
-![Entity Framework Core](https://img.shields.io/badge/EF-Core-green)
+![.NET](https://img.shields.io/badge/.NET-10.0-purple)
+![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-10.0-blue)
+![Entity Framework Core](https://img.shields.io/badge/EF%20Core-10.0-green)
 ![SQL Server](https://img.shields.io/badge/SQL-Server-red)
 ![Clean Architecture](https://img.shields.io/badge/Architecture-Clean-success)
 ![FluentValidation](https://img.shields.io/badge/Validation-FluentValidation-orange)
@@ -18,20 +18,21 @@
 
 ## 🚧 Current Status
 
-| Item           | Status                               |
-| -------------- | ------------------------------------ |
-| Current Sprint | 🔄 Sprint 11 – JWT Authentication    |
-| Project Status | 🚀 Active Development                |
-| Current Focus  | Secure user authentication using JWT |
-| Next Sprint    | Sprint 12 – Role-Based Authorization |
+| Item | Status |
+|------|--------|
+| Current Sprint | 🔄 Sprint 11 – JWT Authentication |
+| Project Status | 🚀 Active Development |
+| Current Focus | Secure user authentication using JWT |
+| Next Sprint | Sprint 12 – Role-Based Authorization |
 
 ---
 
 # 📖 About This Project
 
-Enterprise Inventory Management API is a **production-inspired learning project** built using **ASP.NET Core 9** and Clean Architecture principles.
+Enterprise Inventory Management API is a **production-inspired learning project** built using **ASP.NET Core 10 (.NET 10)** and Clean Architecture principles.
 
-Unlike tutorial-based applications that primarily focus on implementing features, this project emphasizes understanding the **architectural reasoning behind every implementation decision**.
+Unlike tutorial-based applications that primarily focus on implementing features, this project emphasizes
+  understanding the architectural reasoning behind each implementation decision.
 
 The application is being developed incrementally through well-defined sprints. Each sprint introduces enterprise concepts, enabling a deep understanding of software architecture, design patterns, performance optimization, validation, security, logging, monitoring, and production-ready backend development.
 
@@ -43,19 +44,19 @@ The objective is not only to build a complete REST API but also to develop the m
 
 This project aims to:
 
-* Build a production-ready ASP.NET Core 9 REST API
-* Apply Clean Architecture principles to build maintainable applications
-* Follow SOLID principles and enterprise design patterns
-* Build efficient data access using Entity Framework Core and SQL Server
-* Implement Repository Pattern and Dependency Injection
-* Implement centralized request validation using FluentValidation
-* Implement object mapping using AutoMapper
-* Implement global exception handling and standardized API responses
-* Implement structured enterprise logging using Serilog
-* Build secure APIs using Authentication and Authorization
-* Understand performance optimization and scalability
-* Follow professional Git and GitHub workflows
-* Follow enterprise software engineering best practices
+- Build a production-ready ASP.NET Core 10 (.NET 10) REST API
+- Apply Clean Architecture principles to build maintainable applications
+- Follow SOLID principles and enterprise design patterns
+- Build efficient data access using Entity Framework Core and SQL Server
+- Implement Repository Pattern and Dependency Injection
+- Implement centralized request validation using FluentValidation
+- Implement object mapping using AutoMapper
+- Implement global exception handling and standardized API responses
+- Implement structured enterprise logging using Serilog
+- Build secure APIs using Authentication and Authorization
+- Understand performance optimization and scalability
+- Follow professional Git and GitHub workflows
+- Follow enterprise software engineering best practices
 
 ---
 
@@ -150,6 +151,25 @@ This project aims to:
 * Authentication middleware
 * Authenticated user identity and claims
 
+#### ✅ Commit 1 Completed – User Registration
+- User authentication architecture
+- User entity and database schema
+- User registration endpoint
+- User repository implementation
+- Password hashing using ASP.NET Core Identity PasswordHasher
+- Registration request & response DTOs
+- AutoMapper configuration
+- Dependency Injection registration
+- Duplicate username validation
+- Duplicate email validation
+
+#### 🔄 Commit 2 – Login & JWT Generation (In Progress)
+
+- User Login
+- JWT Token Generation
+- JWT Validation
+- Authentication Middleware
+- Claims-based Identity
 ---
 
 > 🚀 Upcoming enterprise features include Role-Based Authorization, Refresh Tokens, Generic Repository discussions and trade-offs, Unit of Work, Pagination, Advanced EF Core Performance, Transactions, Optimistic Concurrency, Redis, Background Services, RabbitMQ, Docker, Azure Deployment, CI/CD, Production Readiness, and an Enterprise React Frontend.
