@@ -3,6 +3,7 @@ using EnterpriseInventory.Application.Interfaces.Security;
 using EnterpriseInventory.Infrastructure.Authentication;
 using EnterpriseInventory.Infrastructure.Persistence.Context;
 using EnterpriseInventory.Infrastructure.Repositories;
+using EnterpriseInventory.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,7 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IPasswordHasher, AspNetCorePasswordHasher>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
         return services;
     }

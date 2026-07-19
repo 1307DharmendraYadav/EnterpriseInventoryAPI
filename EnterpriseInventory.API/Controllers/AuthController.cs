@@ -28,5 +28,18 @@ namespace EnterpriseInventory.API.Controllers
 
             return StatusCode(StatusCodes.Status201Created,response);
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequest request)
+        {
+            var response = await _authService.LoginAsync(request);
+
+            return Ok(
+                ApiResponseFactory.Success(
+                    data: response,
+                    message: "Login successful.",
+                    statusCode: StatusCodes.Status200OK,
+                    traceId: HttpContext.TraceIdentifier));
+        }
     }
 }

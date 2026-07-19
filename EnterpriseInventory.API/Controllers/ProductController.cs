@@ -1,6 +1,7 @@
 ﻿using EnterpriseInventory.API.Helpers;
 using EnterpriseInventory.Application.DTOs;
 using EnterpriseInventory.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EnterpriseInventory.API.Controllers
@@ -16,6 +17,7 @@ namespace EnterpriseInventory.API.Controllers
             _productService = productService;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
