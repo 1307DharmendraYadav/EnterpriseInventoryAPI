@@ -8,6 +8,7 @@ namespace EnterpriseInventory.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -17,7 +18,6 @@ namespace EnterpriseInventory.API.Controllers
             _productService = productService;
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
