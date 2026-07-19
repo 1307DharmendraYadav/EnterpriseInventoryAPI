@@ -1,12 +1,14 @@
 ﻿using EnterpriseInventory.API.Helpers;
 using EnterpriseInventory.Application.DTOs;
 using EnterpriseInventory.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EnterpriseInventory.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;

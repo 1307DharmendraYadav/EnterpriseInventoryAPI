@@ -21,6 +21,16 @@ public class UserRepository : IUserRepository
     {
         return _context.Users.AnyAsync(u => u.Email == email);
     }
+
+    public async Task<User?> GetByLoginAsync(string login)
+    {
+        return await _context.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u =>
+                u.Username == login ||
+                u.Email == login);
+    }
+
     public async Task<User> AddAsync(User user)
     {
         await _context.Users.AddAsync(user);

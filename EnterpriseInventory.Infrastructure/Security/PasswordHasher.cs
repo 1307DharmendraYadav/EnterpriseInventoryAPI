@@ -15,8 +15,8 @@ public class PasswordHasher : IPasswordHasher
 
     public bool Verify(string password, string passwordHash)
     {
-        var result = _passwordHasher.VerifyHashedPassword(
-            new User(),
+        var result = _passwordHasher.VerifyHashedPassword
+            (new User(),
             passwordHash,
             password);
 
