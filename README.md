@@ -17,10 +17,10 @@
 
 | Item | Status |
 |------|--------|
-| Current Sprint | 🚧 Sprint 12 – Authorization |
-| Last Completed Sprint | ✅ Sprint 11 – JWT Authentication |
+| Current Sprint | 🚧 Sprint 12B – Role & Permission Management APIs |
+| Last Completed Sprint | ✅ Sprint 12A – Permission-Based Authorization |
 | Project Status | 🚀 Active Development |
-| Current Focus | Enterprise Authorization (Roles, Policies & Permissions) |
+| Current Focus | Role, Permission & User Role Management APIs |
 
 ---
 
@@ -275,16 +275,61 @@ This project follows **Clean Architecture** to achieve maintainability, scalabil
 
 ---
 
-# 🚀 Sprint 12 – Authorization (Current Sprint)
+# 🔐 Sprint 12 – Enterprise Authorization ✅ Sprint 12A Completed
 
-## Planned Features
+## Features Implemented
 
-- Role-Based Authorization
-- Policy-Based Authorization
-- Claims-Based Authorization
-- Permission-Based Authorization
-- Refresh Tokens
+### Sprint 12A
 
+- Enterprise Role-Based Access Control (RBAC)
+- Dynamic Permission-Based Authorization
+- Role Entity
+- Permission Entity
+- UserRole Entity
+- RolePermission Entity
+- EF Core Configurations
+- Database Seeders
+- JWT Permission Claims
+- Dynamic Policy Provider
+- Custom Authorization Handler
+- Custom Permission Attribute
+- Permission-Protected Product APIs
+
+---
+
+## Sprint 12A Commit History
+
+### ✅ Commit 1 – Enterprise Permission-Based Authorization
+
+Implemented:
+
+- Role entity
+- Permission entity
+- UserRole entity
+- RolePermission entity
+- EF Core configurations
+- Security seeders
+- Permission constants
+- Permission requirement
+- Permission authorization handler
+- Dynamic policy provider
+- Custom HasPermission attribute
+- JWT permission claims
+- Repository support for loading user permissions
+- Dependency Injection registration
+- Permission-protected Product APIs
+
+---
+
+## Sprint 12B (Next Sprint)
+
+Planned:
+
+- Role Management APIs
+- Permission Management APIs
+- User Role Assignment APIs
+- Role Permission Assignment APIs
+- 
 ---
 
 # 🛣 Project Roadmap
@@ -303,7 +348,8 @@ This project follows **Clean Architecture** to achieve maintainability, scalabil
 | Sprint 10 – Exception Handling | ✅ Completed |
 | Sprint 10.1 – Enterprise Logging | ✅ Completed |
 | Sprint 11 – JWT Authentication | ✅ Completed |
-| Sprint 12 – Authorization | 🚧 In Progress |
+| Sprint 12A – Enterprise Permission-Based Authorization | ✅ Completed |
+| Sprint 12B – Role & Permission Management APIs | 🚧 In Progress |
 | Sprint 13 – Refresh Tokens | ⏳ Planned |
 | Sprint 14 – Generic Repository Discussion | ⏳ Planned |
 | Sprint 15 – Unit of Work | ⏳ Planned |
