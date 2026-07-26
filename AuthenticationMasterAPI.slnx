@@ -1,4 +1,11 @@
 <Solution>
+  <Folder Name="/Docs/" />
+  <Folder Name="/Docs/Handbook/" />
+  <Folder Name="/Docs/Handbook/Sprint-12-RBAC/">
+    <File Path="C:/Users/Dharmendra/Downloads/Enterprise Backend Handbook- Many-to-Many Relationships in EF Core.pdf" />
+    <File Path="C:/Users/Dharmendra/Downloads/Sprint12_Authentication_Authorization_Flow.md" />
+    <File Path="C:/Users/Dharmendra/Downloads/ToDictionaryAsync vs ToListAsync.pdf" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>

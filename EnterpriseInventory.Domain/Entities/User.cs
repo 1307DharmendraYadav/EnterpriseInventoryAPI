@@ -16,4 +16,6 @@ public class User : BaseEntity
     public bool IsActive { get; set; } = true;
 
     public DateTime CreatedAtUtc { get; set; } = DateTime.UtcNow;
+    public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
+
 }

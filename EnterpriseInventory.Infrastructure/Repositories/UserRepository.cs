@@ -40,4 +40,45 @@ public class UserRepository : IUserRepository
         return user;
     }
 
+    public async Task<IReadOnlyCollection<string>> GetRolesAsync(int userId)
+    {
+        return await _context.UserRoles
+            .AsNoTracking()
+            .Where(ur => ur.UserId == userId)
+            .Select(ur => ur.Role.Name)
+            .ToListAsync();
+    }
+
+    /// <summary>
+    /// Retrieves all effective permissions assigned to the specified user.
+    ///
+    /// Permissions are resolved through:
+    /// User → UserRoles → RolePermissions → Permissions
+    /// </summary>
+    /// <param name="userId">
+    /// The unique identifier of the user whose permissions are to be retrieved.
+    /// </param>
+    /// <returns>
+    /// A read-only collection containing all effective permission names
+    /// assigned to the user.
+    /// </returns>
+    public async Task<IReadOnlyCollection<string>> GetPermissionsAsync(int userId)
+    {
+        return await _context.UserRoles
+            .AsNoTracking()
+
+            // Get roles assigned to the user.
+            .Where(ur => ur.UserId == userId)
+
+            // Flatten all permissions from the user's assigned roles.
+            .SelectMany(ur => ur.Role.RolePermissions)
+
+            // Return only permission names.
+            .Select(rp => rp.Permission.Name)
+
+            // Remove duplicate permissions that may come from multiple roles.
+            .Distinct()
+
+            .ToListAsync();
+    }
 }

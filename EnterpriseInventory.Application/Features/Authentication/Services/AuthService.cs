@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
-using EnterpriseInventory.Application.Common.Settings;
 using EnterpriseInventory.Application.Exceptions;
 using EnterpriseInventory.Application.Features.Authentication.DTOs;
 using EnterpriseInventory.Application.Features.Authentication.Interfaces;
 using EnterpriseInventory.Application.Interfaces.Repositories;
 using EnterpriseInventory.Application.Interfaces.Security;
 using EnterpriseInventory.Domain.Entities;
-using Microsoft.Extensions.Options;
 
 namespace EnterpriseInventory.Application.Features.Authentication.Services;
 
@@ -21,8 +19,7 @@ public class AuthService : IAuthService
         IUserRepository userRepository,
         IPasswordHasher passwordHasher,
         IMapper mapper,
-        IJwtTokenGenerator jwtTokenGenerator,
-        IOptions<JwtSettings> jwtOption)
+        IJwtTokenGenerator jwtTokenGenerator)
     {
         _userRepository = userRepository;
         _passwordHasher = passwordHasher;
@@ -84,7 +81,14 @@ public class AuthService : IAuthService
 
         var response = _mapper.Map<LoginResponse>(user);
 
-        var jwtResult = _jwtTokenGenerator.GenerateToken(user);
+        // Load all business roles assigned to the authenticated user.
+        var roles = await _userRepository.GetRolesAsync(user.Id);
+
+        // Load all effective permissions assigned to the authenticated user.
+        var permissions = await _userRepository.GetPermissionsAsync(user.Id);
+
+        // Generate JWT containing identity, role and permission claims.
+        var jwtResult = _jwtTokenGenerator.GenerateToken(user,roles,permissions);
 
         response.Token = jwtResult.Token;
         response.ExpiresAtUtc = jwtResult.ExpiresAtUtc;

@@ -1,4 +1,5 @@
-﻿using EnterpriseInventory.Application.Common.Settings;
+﻿using EnterpriseInventory.Application.Authorization.Constants;
+using EnterpriseInventory.Application.Common.Settings;
 using EnterpriseInventory.Application.Interfaces.Security;
 using EnterpriseInventory.Domain.Entities;
 using Microsoft.Extensions.Options;
@@ -27,22 +28,45 @@ public class JwtTokenGenerator : IJwtTokenGenerator
     /// <summary>
     /// Generates a signed JSON Web Token (JWT) for the authenticated user.
     /// </summary>
+    
     /// <param name="user">
-    /// The authenticated user for whom the JWT will be generated.
+    /// The authenticated user.
     /// </param>
+    
+    /// <param name="roles">
+    /// The business roles assigned to the authenticated user.
+    //// These roles are embedded as role claims inside the generated JWT.
+    /// </param>
+
+    /// <param name="permissions">
+    /// The effective permissions granted to the authenticated user.
+    ///
+    /// Permissions are resolved through the user's assigned roles
+    /// and embedded as permission claims inside the generated JWT.
+    /// </param>
+    
     /// <returns>
-    /// A signed JWT string containing the user's identity claims.
+    /// A signed JWT along with its expiration information.
     /// </returns>
-    public JwtTokenResult GenerateToken(User user)
+    public JwtTokenResult GenerateToken(User user, IReadOnlyCollection<string> roles, 
+        IReadOnlyCollection<string> permissions)
     {
         /*
          ---------------------------------------------------------------------
-            Claims represent the authenticated user's identity.
-            Every claim added here becomes part of the JWT payload and is
-            available throughout the lifetime of the authenticated session
-            (until the JWT expires).
+
+         Claims represent the authenticated user's identity.
+
+         Every claim added here becomes part of the JWT payload and is
+         available throughout the lifetime of the authenticated session
+         (until the JWT expires).
+
+         The JWT now contains both:
+
+         • Identity information
+         • Authorization information (Roles)
+
          ---------------------------------------------------------------------
-         */
+        */
 
         var claims = new List<Claim>
         {
@@ -108,6 +132,46 @@ public class JwtTokenGenerator : IJwtTokenGenerator
             new Claim(ClaimTypes.Email, user.Email)
         };
 
+        /*  
+         ---------------------------------------------------------------------
+          Add the authenticated user's business roles as Role Claims.
+         
+          ASP.NET Core automatically uses ClaimTypes.Role when evaluating
+          [Authorize(Roles = "...")] attributes.
+         ---------------------------------------------------------------------
+        */
+
+        foreach (var role in roles)
+        {
+            claims.Add( new Claim(ClaimTypes.Role,role));
+        }
+
+        /*  
+         ---------------------------------------------------------------------
+         Add the authenticated user's effective permissions as JWT claims.
+
+         Each permission is stored using a custom claim type named
+         "permission".
+
+         These claims are evaluated by PermissionAuthorizationHandler
+         when processing:
+
+         [HasPermission("Product.Create")]
+
+         Example JWT payload:
+
+         "permission": "Product.View"
+         "permission": "Product.Create"
+         "permission": "User.View"
+
+         ---------------------------------------------------------------------
+        */
+        foreach (var permission in permissions)
+        {
+            claims.Add( new Claim(ClaimConstants.Permission,permission));
+        }
+
+
         /* 
          ---------------------------------------------------------------------
           Create the symmetric security key used to digitally sign the JWT.
@@ -136,7 +200,9 @@ public class JwtTokenGenerator : IJwtTokenGenerator
              The token contains:
              • Issuer    - Who created the token
              • Audience  - Who the token is intended for
-             • Claims    - User identity information
+             • Identity Claims    - User identity information
+             • Role Claims
+             • Permission Claims
              • Expiration- Token validity period
              • Signing Credentials - Used to digitally sign the token
              ---------------------------------------------------------------------

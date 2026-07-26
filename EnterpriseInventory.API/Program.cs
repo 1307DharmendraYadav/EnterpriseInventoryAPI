@@ -4,6 +4,7 @@ using EnterpriseInventory.Application.DependencyInjection;
 using EnterpriseInventory.Application.Mappings;
 using EnterpriseInventory.Application.Validators;
 using EnterpriseInventory.Infrastructure.DependencyInjection;
+using EnterpriseInventory.Infrastructure.Seed;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -79,10 +80,10 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSet
 
 /*---------------------------------------------------------------------
   Read the strongly typed JWT configuration from appsettings.json.
- 
+
   Program.cs is the application's composition root, so we read the
   configuration directly from IConfiguration.
- 
+
   Application services should use IOptions<JwtSettings> instead.
   ---------------------------------------------------------------------
 */
@@ -98,70 +99,85 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 
 builder.Services
-    .AddAuthentication(options =>
+ .AddAuthentication(options =>
+ {
+     options.DefaultAuthenticateScheme =
+         JwtBearerDefaults.AuthenticationScheme;
+
+     options.DefaultChallengeScheme =
+         JwtBearerDefaults.AuthenticationScheme;
+ })
+ .AddJwtBearer(options =>
+ {
+     options.TokenValidationParameters = new TokenValidationParameters
+     {
+         ValidateIssuer = true,
+         ValidIssuer = jwtSettings.Issuer,
+
+         ValidateAudience = true,
+         ValidAudience = jwtSettings.Audience,
+
+         ValidateLifetime = true,
+
+         ValidateIssuerSigningKey = true,
+         IssuerSigningKey =
+           new SymmetricSecurityKey(Encoding.UTF8
+           .GetBytes(jwtSettings.Key)),
+
+         ClockSkew = TimeSpan.Zero
+     };
+ });
+
+// ============================================================
+// AUTHORIZATION
+// ============================================================
+
+// Registers ASP.NET Core authorization services.
+// Enables role-based and policy-based authorization.
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
     {
-        options.DefaultAuthenticateScheme =
-            JwtBearerDefaults.AuthenticationScheme;
-
-        options.DefaultChallengeScheme =
-            JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidIssuer = jwtSettings.Issuer,
-
-            ValidateAudience = true,
-            ValidAudience = jwtSettings.Audience,
-
-            ValidateLifetime = true,
-
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = 
-              new SymmetricSecurityKey(Encoding.UTF8
-              .GetBytes(jwtSettings.Key)),
-
-            ClockSkew = TimeSpan.Zero
-        };
+        policy.RequireRole("Admin");
     });
+});
+
 
 // Swagger / OpenAPI Services
 builder.Services.AddSwaggerGen(options =>
-{
-    // ------------------------------------------------------------
-    // Swagger document
-    // ------------------------------------------------------------
-    options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Enterprise Inventory API",
-        Version = "v1",
-        Description = "REST API for Enterprise Inventory Management System"
-    });
-
-    // ------------------------------------------------------------
-    // JWT Bearer definition
-    // ------------------------------------------------------------
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT",
-        Description = "JWT Authorization header using the Bearer scheme."
-    });
-
-    // ------------------------------------------------------------
-    // JWT requirement (Swashbuckle 10.x)
-    // ------------------------------------------------------------
-    options.AddSecurityRequirement(document =>
-        new OpenApiSecurityRequirement
+        // ------------------------------------------------------------
+        // Swagger document
+        // ------------------------------------------------------------
+        options.SwaggerDoc("v1", new OpenApiInfo
         {
-            [
-                new OpenApiSecuritySchemeReference("Bearer", document)
-            ] = []
+            Title = "Enterprise Inventory API",
+            Version = "v1",
+            Description = "REST API for Enterprise Inventory Management System"
         });
-});
+
+        // ------------------------------------------------------------
+        // JWT Bearer definition
+        // ------------------------------------------------------------
+        options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT",
+            Description = "JWT Authorization header using the Bearer scheme."
+        });
+
+        // ------------------------------------------------------------
+        // JWT requirement (Swashbuckle 10.x)
+        // ------------------------------------------------------------
+        options.AddSecurityRequirement(document =>
+            new OpenApiSecurityRequirement
+            {
+                [
+                    new OpenApiSecuritySchemeReference("Bearer", document)
+                ] = []
+            });
+    });
 
 
 
@@ -191,7 +207,7 @@ if (app.Environment.IsDevelopment())
             "EnterpriseInventory API v1");
 
         c.RoutePrefix = "swagger";//https://localhost:7047/swagger/v1/swagger.json
-        //c.RoutePrefix = "api-docs"; //https://localhost:7047/api-docs
+                                  //c.RoutePrefix = "api-docs"; //https://localhost:7047/api-docs
     });
 }
 
@@ -220,6 +236,18 @@ app.UseAuthorization();
 
 // Maps controller actions to HTTP endpoints.
 app.MapControllers();
+
+/* 
+ ============================================================
+ DATABASE INITIALIZATION
+ ============================================================
+
+ Executes one-time database startup tasks before the application
+ begins accepting requests. This includes seeding required
+ master/reference data (e.g., Roles, Permissions, Feature Flags)
+ and other future database initialization activities.
+*/
+await DatabaseInitializer.InitializeAsync(app.Services);
 
 
 // ============================================================

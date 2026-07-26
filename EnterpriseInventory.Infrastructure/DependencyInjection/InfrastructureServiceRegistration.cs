@@ -1,6 +1,6 @@
-﻿using EnterpriseInventory.Application.Interfaces.Repositories;
+﻿using EnterpriseInventory.Application.Common.Settings;
+using EnterpriseInventory.Application.Interfaces.Repositories;
 using EnterpriseInventory.Application.Interfaces.Security;
-using EnterpriseInventory.Infrastructure.Authentication;
 using EnterpriseInventory.Infrastructure.Persistence.Context;
 using EnterpriseInventory.Infrastructure.Repositories;
 using EnterpriseInventory.Infrastructure.Security;
@@ -16,15 +16,36 @@ public static class InfrastructureServiceRegistration
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        // ============================================================
+        // DATABASE
+        // ============================================================
+
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlServer(
                 configuration.GetConnectionString("EnterpriseInventoryDb"));
         });
 
+        // ============================================================
+        // CONFIGURATION
+        // ============================================================
+
+
+        services.Configure<DefaultAdminSettings>(
+            configuration.GetSection(DefaultAdminSettings.SectionName));
+
+        // ============================================================
+        // REPOSITORIES
+        // ============================================================
+
         services.AddScoped<IProductRepository, ProductRepository>();
-        services.AddScoped<IPasswordHasher, AspNetCorePasswordHasher>();
         services.AddScoped<IUserRepository, UserRepository>();
+
+        // ============================================================
+        // SECURITY
+        // ============================================================
+
+        services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
         return services;

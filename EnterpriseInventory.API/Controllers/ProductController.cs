@@ -1,4 +1,6 @@
 ﻿using EnterpriseInventory.API.Helpers;
+using EnterpriseInventory.Application.Authorization;
+using EnterpriseInventory.Application.Authorization.Attributes;
 using EnterpriseInventory.Application.DTOs;
 using EnterpriseInventory.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -17,8 +19,9 @@ namespace EnterpriseInventory.API.Controllers
         {
             _productService = productService;
         }
-
+        
         [HttpGet]
+        [HasPermission(PermissionConstants.Product.View)]
         public async Task<IActionResult> GetAll()
         {
             var products = await _productService.GetAllAsync();
@@ -32,6 +35,7 @@ namespace EnterpriseInventory.API.Controllers
         }
 
         [HttpPost]
+        [HasPermission(PermissionConstants.Product.Create)]
         public async Task<IActionResult> Create(CreateProductRequest request)
         {
             var product = await _productService.CreateAsync(request);
@@ -46,6 +50,7 @@ namespace EnterpriseInventory.API.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [HasPermission(PermissionConstants.Product.View)]
         public async Task<IActionResult> GetById(int id)
         {
             var product = await _productService.GetByIdAsync(id);
@@ -59,6 +64,7 @@ namespace EnterpriseInventory.API.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [HasPermission(PermissionConstants.Product.Update)]
         public async Task<IActionResult> Update(int id,UpdateProductRequest request)
         {
             var product = await _productService.UpdateAsync(id, request);
@@ -73,6 +79,7 @@ namespace EnterpriseInventory.API.Controllers
 
 
         [HttpDelete("{id:int}")]
+        [HasPermission(PermissionConstants.Product.Delete)]
         public async Task<IActionResult> Delete(int id)
         {
             await _productService.DeleteAsync(id);
