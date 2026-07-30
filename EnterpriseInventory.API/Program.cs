@@ -63,9 +63,11 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateProductRequestValidat
 
 // AutoMapper
 // Registers all AutoMapper profiles from the Application assembly.
+//
 // NOTE:
-// The mapping profiles live in the Application project,
-// but the DI registration belongs to the API composition root.
+// All mapping profiles (Products, Authentication, Roles, Permissions, etc.)
+// reside in the Application project. AutoMapper scans the entire assembly
+// and automatically discovers every Profile implementation.
 builder.Services.AddAutoMapper(
     cfg => { },
     typeof(ProductProfile).Assembly);

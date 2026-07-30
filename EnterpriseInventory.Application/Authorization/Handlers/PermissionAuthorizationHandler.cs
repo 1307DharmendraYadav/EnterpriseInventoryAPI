@@ -1,9 +1,6 @@
 ﻿using EnterpriseInventory.Application.Authorization.Constants;
 using EnterpriseInventory.Application.Authorization.Requirements;
-using EnterpriseInventory.Application.Interfaces.Security;
-using EnterpriseInventory.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EnterpriseInventory.Application.Authorization.Handlers;
 

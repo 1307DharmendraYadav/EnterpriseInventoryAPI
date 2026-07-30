@@ -19,6 +19,7 @@ obj/
 
 ## Logs
 *.log
+**/logs/
 
 ## Test Results
 TestResults/

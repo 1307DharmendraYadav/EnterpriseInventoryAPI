@@ -2,6 +2,8 @@
 using EnterpriseInventory.Application.Authorization.PolicyProviders;
 using EnterpriseInventory.Application.Features.Authentication.Interfaces;
 using EnterpriseInventory.Application.Features.Authentication.Services;
+using EnterpriseInventory.Application.Features.Roles.Interfaces;
+using EnterpriseInventory.Application.Features.Roles.Services;
 using EnterpriseInventory.Application.Interfaces;
 using EnterpriseInventory.Application.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -22,6 +24,8 @@ public static class ApplicationServiceRegistration
         services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
 
         services.AddSingleton<IAuthorizationHandler,PermissionAuthorizationHandler>();
+
+        services.AddScoped<IRoleService, RoleService>();
 
         return services;
     }

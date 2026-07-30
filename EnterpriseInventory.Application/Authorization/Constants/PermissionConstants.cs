@@ -17,4 +17,13 @@ public static class PermissionConstants
         public const string Update = "User.Update";
         public const string Delete = "User.Delete";
     }
+
+    public static class Role
+    {
+        public const string View = "Role.View";
+        public const string Create = "Role.Create";
+        public const string Update = "Role.Update";
+        public const string Delete = "Role.Delete";
+    }
+
 }
