@@ -40,6 +40,7 @@ public static class InfrastructureServiceRegistration
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
 
         // ============================================================
         // SECURITY
