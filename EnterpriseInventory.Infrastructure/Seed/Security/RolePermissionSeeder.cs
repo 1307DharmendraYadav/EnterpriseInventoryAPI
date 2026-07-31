@@ -4,6 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EnterpriseInventory.Infrastructure.Seed.Security;
 
+/// <summary>
+/// Seeds the default Role-Permission mappings.
+///
+/// The Administrator role is intentionally granted all
+/// application permissions so that a freshly deployed
+/// environment is immediately manageable without requiring
+/// manual database updates.
+///
+/// Other default roles are seeded with their predefined
+/// permission sets to provide a consistent RBAC baseline
+/// across all environments.
+/// </summary>
 public static class RolePermissionSeeder
 {
     public static async Task InitializeAsync(ApplicationDbContext context)
@@ -36,7 +48,11 @@ public static class RolePermissionSeeder
                 permission => permission);
 
         // ============================================================
-        // DEFINE ROLE-PERMISSION MAPPINGS
+        // DEFAULT ROLE-PERMISSION MAPPINGS
+        //
+        // These mappings bootstrap the application so that a
+        // fresh installation has a fully functional Administrator
+        // account and predefined business roles.
         // ============================================================
 
         IReadOnlyDictionary<string, IReadOnlyList<string>> rolePermissions =
@@ -44,14 +60,37 @@ public static class RolePermissionSeeder
             {
                 ["Admin"] =
                 [
+                    // ========================================================
+                    // PRODUCT
+                    // ========================================================
                     "Product.View",
                     "Product.Create",
                     "Product.Update",
                     "Product.Delete",
+
+                    // ========================================================
+                    // USER
+                    // ========================================================
                     "User.View",
                     "User.Create",
                     "User.Update",
-                    "User.Delete"
+                    "User.Delete",
+
+                    // ========================================================
+                    // ROLE
+                    // ========================================================
+                    "Role.View",
+                    "Role.Create",
+                    "Role.Update",
+                    "Role.Delete",
+
+                    // ========================================================
+                    // PERMISSION
+                    // ========================================================
+                    "Permission.View",
+                    "Permission.Create",
+                    "Permission.Update",
+                    "Permission.Delete"
                 ],
 
                 ["Manager"] =
@@ -76,7 +115,7 @@ public static class RolePermissionSeeder
             };
 
         // ============================================================
-        // BUILD ROLE-PERMISSION ENTITIES
+        // BUILD ROLE-PERMISSION MAPPINGS
         // ============================================================
 
         var mappings = new List<RolePermission>();
