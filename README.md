@@ -18,27 +18,22 @@
 
 # 🚧 Current Status
 
-| Item                  | Status                                                        |
+| Item                  | Status |
 | --------------------- | ------------------------------------------------------------- |
-| Current Sprint        | 🚧 Sprint 12B – Role & Permission Management APIs             |
-| Last Completed Sprint | ✅ Sprint 12A – Enterprise Permission-Based Authorization      |
-| Project Status        | 🚀 Active Development                                         |
-| Current Focus         | Completing Permission, User-Role & Role-Permission Management APIs |
+| Current Sprint        | ⏳ Sprint 12D – User-Specific Permission Overrides |
+| Last Completed Sprint | ✅ Sprint 12C – Permission Management & Role Permission Assignment |
+| Project Status        | 🚀 Active Development |
+| Current Focus         | Implementing User-Specific Permission Overrides |
 
-### Sprint 12B Progress
+### Sprint 12 Progress
 
-| Capability                      | Status      |
-| ------------------------------- | ----------- |
-| Role CRUD APIs                  | ✅ Completed |
-| Role Service                    | ✅ Completed |
-| Role Repository                 | ✅ Completed |
-| Role DTOs                       | ✅ Completed |
-| Role Validation                 | ✅ Completed |
-| Role AutoMapper Profile         | ✅ Completed |
-| Permission-Protected Role APIs  | ✅ Completed |
-| Permission Management APIs      | ⏳ Pending   |
-| User Role Assignment APIs       | ⏳ Pending   |
-| Role Permission Assignment APIs | ⏳ Pending   |
+| Sprint | Capability | Status |
+|--------|------------|--------|
+| 12A | Enterprise Permission-Based Authorization | ✅ Completed |
+| 12B | Role Management (CRUD APIs) | ✅ Completed |
+| 12C | Permission Management (CRUD APIs) | ✅ Completed |
+| 12C | Role Permission Assignment APIs | ✅ Completed |
+| 12C | Bootstrap Administrator Protection | ✅ Completed |
 
 ---
 
@@ -516,47 +511,30 @@ Implemented:
 
 ---
 
-# 🚧 Sprint 12B – Role & Permission Management APIs
+---
 
-Sprint 12B focuses on the **management side of RBAC**.
+# ✅ Sprint 12B – Role Management
 
-While Sprint 12A established the authorization engine, Sprint 12B provides APIs to manage the authorization data.
+Sprint 12B introduced enterprise Role Management capabilities for the RBAC module.
 
-The distinction is:
+The focus of Sprint 12B was:
 
-```text
-Sprint 12A
-Authorization Engine
-        ↓
-"Can this user perform this action?"
+> "How do administrators manage application roles?"
 
-Sprint 12B
-Authorization Management
-        ↓
-"How do we manage Roles and Permissions?"
-```
+## Features Implemented
+
+- Role CRUD APIs
+- RoleService
+- RoleRepository
+- Role DTOs
+- FluentValidation
+- AutoMapper Profile
+- Permission-Protected Role APIs
+- Dependency Injection registration
 
 ---
 
-# ✅ Sprint 12B – Role Management Implemented
-
-The first Sprint 12B milestone implements **Role Management APIs**.
-
-## Role Management Features
-
-### Role CRUD APIs
-
-Implemented:
-
-* Get all roles
-* Get role by ID
-* Create role
-* Update role
-* Delete role
-
----
-
-## Role Architecture
+## Sprint 12B Role Management Flow
 
 ```text
 RoleController
@@ -576,154 +554,99 @@ SQL Server
 
 ---
 
-## Role DTOs
+## Sprint 12B Commit History
+
+### ✅ Commit – Role Management
 
 Implemented:
 
-```text
-CreateRoleRequest
-UpdateRoleRequest
-RoleResponse
-```
-
-This keeps the API contract separate from the `Role` domain entity.
+- Role CRUD APIs
+- RoleService
+- RoleRepository
+- Role DTOs
+- FluentValidation
+- AutoMapper Profile
+- Permission-Protected Role APIs
+- Dependency Injection registration
 
 ---
 
-## Role Validation
+# ✅ Sprint 12C – Permission Management & Role-Permission Assignment
+
+Sprint 12C extends the RBAC management capabilities introduced in Sprint 12B.
+
+The focus of Sprint 12C was:
+
+> "How do administrators manage permissions and assign them to roles?"
+
+---
+
+## Features Implemented
+
+### Permission Management
+
+- Permission CRUD APIs
+- PermissionService
+- PermissionRepository
+- Permission DTOs
+- FluentValidation
+- AutoMapper Profile
+
+---
+
+### Role Permission Assignment
+
+Implemented APIs to manage permissions assigned to roles.
+
+Features:
+
+- Get permissions assigned to a role
+- Replace permissions assigned to a role
+- Permission validation
+- Role validation
+- Repository implementation
+- Service implementation
+- Controller implementation
+
+---
+
+### Bootstrap Administrator Protection
+
+Implemented enterprise protection to prevent accidental RBAC lockout.
+
+The Administrator role must always retain:
+
+- Role.View
+- Role.Update
+
+Attempting to remove either permission returns a validation error to ensure at least one administrator can always manage RBAC.
+
+---
+
+## Sprint 12C Commit History
+
+### ✅ Commit – Permission & Role Permission Management
 
 Implemented:
 
-```text
-CreateRoleRequestValidator
-UpdateRoleRequestValidator
-```
-
-Validation includes:
-
-* Required role name
-* Maximum role name length
-* FluentValidation integration
-* Cascade validation behavior
-
----
-
-## Role AutoMapper Profile
-
-Implemented:
-
-```text
-RoleProfile
-```
-
-Mappings include:
-
-```text
-CreateRoleRequest → Role
-
-UpdateRoleRequest → Role
-
-Role → RoleResponse
-```
-
----
-
-## Role Authorization
-
-Role APIs are protected using permission-based authorization.
-
-Permissions include:
-
-```text
-Role.View
-Role.Create
-Role.Update
-Role.Delete
-```
-
-Example:
-
-```csharp
-[HasPermission(PermissionConstants.Role.View)]
-```
-
-This ensures that creating management APIs does not bypass the authorization architecture introduced in Sprint 12A.
-
----
-
-## Role Controller
-
-The `RoleController` is protected with authentication and permission-based authorization.
-
-```text
-[Authorize]
-      ↓
-[HasPermission(...)]
-      ↓
-RoleController
-```
-
-Authentication verifies that the caller is authenticated.
-
-Permission authorization verifies whether the caller has the required permission.
-
----
-
-## Role Dependency Injection
-
-Role services and repositories are registered through Dependency Injection.
-
-```text
-IRoleService → RoleService
-
-IRoleRepository → RoleRepository
-```
-
-This maintains loose coupling and follows the Dependency Inversion Principle.
-
----
-
-# ⏳ Sprint 12B – Remaining Work
-
-The following capabilities are still planned for Sprint 12B:
-
-## Permission Management APIs
-
-Planned:
-
-* Get all permissions
-* Get permission by ID
-* Create permission
-* Update permission
-* Delete permission
-
----
-
-## User Role Assignment APIs
-
-Planned:
-
-* Assign role to user
-* Remove role from user
-* Get roles assigned to a user
-* Manage user-role relationships
-
----
-
-## Role Permission Assignment APIs
-
-Planned:
-
-* Assign permission to role
-* Remove permission from role
-* Get permissions assigned to a role
-* Manage role-permission relationships
+- Permission CRUD APIs
+- Role Permission Management APIs
+- PermissionService
+- RolePermissionService
+- PermissionRepository
+- RolePermissionRepository
+- FluentValidation
+- AutoMapper Profiles
+- Dependency Injection registration
+- Bootstrap Administrator Protection
+- RolePermission seeding
+- Enterprise RBAC management
 
 ---
 
 # 🔒 RBAC Target Architecture
 
-After Sprint 12B is completed, the expected authorization management flow will be:
+After Sprint 12C is completed, the expected authorization management flow will be:
 
 ```text
                     ┌──────────────┐
@@ -747,35 +670,38 @@ Authorization:
 
 ```text
 User
- ↓
-Roles
- ↓
-Permissions
- ↓
+   │
+UserRole
+   │
+Role
+   │
+RolePermission
+   │
+Permission
+   │
 JWT Permission Claims
- ↓
-HasPermission
- ↓
-Dynamic Policy
- ↓
-Authorization Handler
- ↓
+   │
+HasPermission Attribute
+   │
+Dynamic Policy Provider
+   │
+Permission Authorization Handler
+   │
 API Access
 ```
 
 Management:
 
 ```text
-Role Management APIs
-        ↓
-Permission Management APIs
-        ↓
-User Role Assignment APIs
-        ↓
-Role Permission Assignment APIs
-```
+Management
 
----
+Role Management
+        ↓
+Permission Management
+        ↓
+Role Permission Assignment
+        ↓
+Permission-Based Authorization
 
 # 🧪 Validation & Quality Checks
 
@@ -809,13 +735,18 @@ Examples:
 ```text
 main
 
+
 feature/sprint-8-fluentvalidation
 feature/sprint-9-automapper
 feature/sprint-10-enterprise-logging
 feature/sprint-11-jwt-authentication
-feature/sprint-12-role-based-authorization
 
-sprint-12b-role-based-access-control
+feature/sprint-12a-permission-authorization
+feature/sprint-12b-role-management
+feature/sprint-12c-permission-management
+feature/sprint-12d-user-permission-overrides
+feature/sprint-12e-permission-audit
+
 ```
 
 The project follows a commit-oriented development approach where significant architectural or functional changes are kept in separate commits.
@@ -858,6 +789,37 @@ This approach ensures that the project is not simply a collection of APIs but a 
 
 ---
 
+# ⏳ Sprint 12D – User-Specific Permission Overrides
+
+Sprint 12D introduces fine-grained permission customization at the individual user level.
+
+Instead of relying solely on permissions inherited through roles, administrators will be able to grant or deny permissions directly to specific users.
+
+### Planned Features
+
+- UserPermission entity
+- Allow/Deny permission model
+- User-specific permission APIs
+- Permission precedence rules
+- Effective permission calculation
+- JWT integration with overrides
+
+# ⏳ Sprint 12E – Permission Audit & Effective Permission APIs
+
+Sprint 12E focuses on visibility and auditing of authorization.
+
+Administrators will be able to inspect why a user has a permission and trace it back to its source.
+
+### Planned Features
+
+- Effective Permission APIs
+- Permission Audit APIs
+- Role inheritance visualization
+- User permission breakdown
+- Permission source tracking
+- Authorization diagnostics
+
+
 # 🛣 Project Roadmap
 
 | Sprint                                                 | Status         |
@@ -874,8 +836,11 @@ This approach ensures that the project is not simply a collection of APIs but a 
 | Sprint 10 – Global Exception Handling                  | ✅ Completed    |
 | Sprint 10.1 – Enterprise Logging                       | ✅ Completed    |
 | Sprint 11 – JWT Authentication                         | ✅ Completed    |
-| Sprint 12A – Enterprise Permission-Based Authorization | ✅ Completed    |
-| Sprint 12B – Role & Permission Management APIs         | 🚧 In Progress |
+| Sprint 12A – Enterprise Permission-Based Authorization | ✅ Completed |
+| Sprint 12B – Role Management | ✅ Completed |
+| Sprint 12C – Permission Management & Role-Permission Assignment | ✅ Completed |
+| Sprint 12D – User-Specific Permission Overrides | ⏳ Planned |
+| Sprint 12E – Permission Audit & Effective Permission APIs | ⏳ Planned |
 | Sprint 13 – Refresh Tokens                             | ⏳ Planned      |
 | Sprint 14 – Generic Repository Discussion              | ⏳ Planned      |
 | Sprint 15 – Unit of Work                               | ⏳ Planned      |
@@ -912,22 +877,28 @@ The project currently demonstrates:
 * Custom Exceptions
 * Enterprise Logging
 * Serilog
+* Structured Logging
 * TraceId Correlation
 * JWT Authentication
 * Claims-Based Identity
 * Options Pattern
-* Role-Based Access Control
+* Role-Based Access Control (RBAC)
 * Permission-Based Authorization
 * Dynamic Authorization Policies
 * Custom Authorization Requirements
 * Custom Authorization Handlers
 * Custom Permission Attributes
 * Security Seeders
-* Feature-oriented organization
-* Professional Git branching
-* Commit-oriented development
-* API documentation with Swagger/OpenAPI
-
+* Role CRUD Management
+* Permission CRUD Management
+* Role-Permission Assignment
+* Bootstrap Administrator Protection
+* Enterprise RBAC Management
+* Fine-Grained Permission Management
+* API Documentation with Swagger/OpenAPI
+* Feature-Oriented Organization
+* Professional Git Branching
+* Commit-Oriented Development
 ---
 
 # 👨‍💻 Development Philosophy
@@ -992,9 +963,17 @@ The project will progressively evolve from a basic enterprise CRUD API into a mo
 Planned areas include:
 
 ```text
-Authentication
-      ↓
 Authorization
+      ↓
+Role Management
+      ↓
+Permission Management
+      ↓
+Role Permission Assignment
+      ↓
+User Permission Overrides
+      ↓
+Permission Audit & Effective Permission Analysis
       ↓
 Refresh Tokens
       ↓
