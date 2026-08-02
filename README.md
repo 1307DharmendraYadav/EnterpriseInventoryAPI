@@ -1,6 +1,5 @@
 # 🚀 Enterprise Inventory Management API
-
-> **A production-inspired ASP.NET Core 10.0 Web API built using Clean Architecture, Entity Framework Core, SQL Server, FluentValidation, AutoMapper, Serilog, JWT Authentication, and enterprise software engineering best practices.**
+> **A production-inspired ASP.NET Core 10.0 Web API built with Clean Architecture, Entity Framework Core, SQL Server, FluentValidation, AutoMapper, Serilog, JWT Authentication, and enterprise software engineering best practices.**
 
 ![.NET](https://img.shields.io/badge/.NET-10.0-purple)
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-10.0-blue)
@@ -18,12 +17,12 @@
 
 # 🚧 Current Status
 
-| Item                  | Status |
+| Item | Status |
 | --------------------- | ------------------------------------------------------------- |
-| Current Sprint        | ⏳ Sprint 12D – User-Specific Permission Overrides |
-| Last Completed Sprint | ✅ Sprint 12C – Permission Management & Role Permission Assignment |
-| Project Status        | 🚀 Active Development |
-| Current Focus         | Implementing User-Specific Permission Overrides |
+| Current Sprint | ⏳ Sprint 12E – User-Specific Permission Overrides |
+| Last Completed Sprint | ✅ Sprint 12D – User ↔ Role Assignment |
+| Project Status | 🚀 Active Development |
+| Current Focus | Implementing User-Specific Permission Overrides |
 
 ### Sprint 12 Progress
 
@@ -32,10 +31,41 @@
 | 12A | Enterprise Permission-Based Authorization | ✅ Completed |
 | 12B | Role Management (CRUD APIs) | ✅ Completed |
 | 12C | Permission Management (CRUD APIs) | ✅ Completed |
-| 12C | Role Permission Assignment APIs | ✅ Completed |
+| 12C | Role ↔ Permission Assignment APIs | ✅ Completed |
 | 12C | Bootstrap Administrator Protection | ✅ Completed |
+| 12D | User ↔ Role Assignment APIs | ✅ Completed |
+
+# 🛠 Tech Stack
+
+The project is built using modern enterprise technologies and follows industry-standard development practices.
+
+| Category | Technology |
+|----------|------------|
+| Framework | ASP.NET Core 10 |
+| Language | C# |
+| ORM | Entity Framework Core |
+| Database | SQL Server |
+| Validation | FluentValidation |
+| Object Mapping | AutoMapper |
+| Logging | Serilog |
+| Authentication | JWT Bearer Authentication |
+| Authorization | Role-Based Access Control (RBAC) & Permission-Based Authorization |
+| API Documentation | Swagger / OpenAPI |
+| Architecture | Clean Architecture |
+| Testing | xUnit |
 
 ---
+
+## Key Libraries & Packages
+
+- Entity Framework Core
+- FluentValidation
+- AutoMapper
+- Serilog
+- Microsoft.AspNetCore.Authentication.JwtBearer
+- Swashbuckle.AspNetCore (Swagger/OpenAPI)
+- xUnit
+
 
 # 📖 About This Project
 
@@ -45,7 +75,7 @@ Unlike tutorial-based applications that primarily focus on implementing features
 
 The project is being developed incrementally through well-defined sprints. Each sprint introduces one enterprise concept and explains the architectural reasoning behind every implementation.
 
-The objective is not only to build a production-ready REST API but also to develop the engineering mindset followed by experienced enterprise software developers.
+The objective is not only to build a production-inspired REST API but also to develop the engineering mindset followed by experienced enterprise software developers.
 
 ---
 
@@ -63,7 +93,7 @@ Every sprint introduces one major architectural concept and explains:
 
 This project aims to:
 
-* Build a production-ready ASP.NET Core 10 REST API
+* Build a production-inspired ASP.NET Core 10 REST API
 * Apply Clean Architecture principles
 * Follow SOLID principles
 * Implement enterprise design patterns
@@ -74,12 +104,12 @@ This project aims to:
 * Implement FluentValidation
 * Implement AutoMapper
 * Implement Global Exception Handling
-* Implement Enterprise Logging using Serilog
+* Implement Enterprise Logging
 * Build secure APIs using JWT Authentication & Authorization
 * Implement Role-Based Access Control (RBAC)
 * Implement dynamic permission-based authorization
 * Develop enterprise security architecture
-* Learn production-ready backend architecture
+* Learn production-inspired backend architecture
 * Follow professional Git & GitHub workflow
 
 ---
@@ -89,51 +119,55 @@ This project aims to:
 This project follows **Clean Architecture** to achieve maintainability, scalability, testability, and separation of concerns.
 
 ```text
-                         ┌──────────────────────────┐
-                         │       API Layer          │
-                         │ EnterpriseInventory.API │
-                         │                          │
-                         │ Controllers              │
-                         │ Middleware               │
-                         │ Authentication           │
-                         │ Authorization            │
-                         │ Swagger                  │
-                         └────────────┬─────────────┘
-                                      │
-                                      ▼
-                         ┌──────────────────────────┐
-                         │   Application Layer      │
-                         │                          │
-                         │ Business Logic           │
-                         │ DTOs                     │
-                         │ Validators               │
-                         │ Services                 │
-                         │ Interfaces               │
-                         │ AutoMapper Profiles      │
-                         │ Authorization Policies   │
-                         └────────────┬─────────────┘
-                                      │
-                                      ▼
-                         ┌──────────────────────────┐
-                         │      Domain Layer        │
-                         │                          │
-                         │ Entities                 │
-                         │ Core Business Rules      │
-                         │ Domain Models             │
-                         └──────────────────────────┘
-                                      ▲
-                                      │
-                         ┌────────────┴─────────────┐
-                         │ Infrastructure Layer     │
-                         │                          │
-                         │ EF Core                  │
-                         │ SQL Server               │
-                         │ Repositories             │
-                         │ Authentication Services  │
-                         │ Password Hashing          │
-                         │ JWT Generation            │
-                         │ Logging                  │
-                         └──────────────────────────┘
+                         ┌────────────────────────────┐
+                         │         API Layer          │
+                         │ EnterpriseInventory.API   │
+                         │                            │
+                         │ Controllers               │
+                         │ Middleware                │
+                         │ Authentication            │
+                         │ Authorization             │
+                         │ Swagger / OpenAPI         │
+                         │ Dependency Injection      │
+                         └─────────────┬──────────────┘
+                                       │
+                                       ▼
+                         ┌────────────────────────────┐
+                         │     Application Layer      │
+                         │                            │
+                         │ Application Services       │
+                         │ DTOs                       │
+                         │ Validators                 │
+                         │ AutoMapper Profiles        │
+                         │ Application Interfaces     │
+                         │ Authorization Policies     │
+                         │ Authorization Requirements │
+                         │ Authorization Handlers     │
+                         └─────────────┬──────────────┘
+                                       │
+                                       ▼
+                         ┌────────────────────────────┐
+                         │        Domain Layer        │
+                         │                            │
+                         │ Entities                   │
+                         │ Domain Models              │
+                         │ Domain Rules               │
+                         │ Domain Abstractions        │
+                         └─────────────▲──────────────┘
+                                       │
+                         ┌─────────────┴──────────────┐
+                         │   Infrastructure Layer     │
+                         │                            │
+                         │ AppDbContext               │
+                         │ Entity Framework Core      │
+                         │ SQL Server                 │
+                         │ Repository Implementations │
+                         │ Authentication             │
+                         │ Implementations            │
+                         │ Password Hashing           │
+                         │ JWT Token Generation       │
+                         │ Logging (Serilog)          │
+                         └────────────────────────────┘
 ```
 
 ## Layer Responsibilities
@@ -142,52 +176,51 @@ This project follows **Clean Architecture** to achieve maintainability, scalabil
 
 Responsible for presentation and HTTP concerns.
 
-* Controllers
-* Middleware
-* Authentication configuration
-* Authorization configuration
-* Swagger/OpenAPI
-* API response handling
-* Dependency Injection composition root
+- Controllers
+- Middleware
+- Authentication configuration
+- Authorization configuration
+- Swagger / OpenAPI
+- API response handling
+- Dependency Injection composition root (`Program.cs`)
 
 ### Application Layer
 
-Responsible for application business logic and use cases.
+Responsible for application use cases and business workflows.
 
-* Application services
-* DTOs
-* Interfaces
-* Validators
-* AutoMapper Profiles
-* Authorization policies
-* Authorization requirements
-* Authorization handlers
-* Application-level exceptions
+- Application services
+- DTOs
+- Application interfaces
+- FluentValidation validators
+- AutoMapper profiles
+- Authorization policies
+- Authorization requirements
+- Authorization handlers
+- Application-level exceptions
 
 ### Domain Layer
 
-Responsible for the core domain model.
+Responsible for the core business model and business rules.
 
-* Entities
-* Domain models
-* Core business rules
-* Domain-level abstractions
+- Entities
+- Domain models
+- Domain rules
+- Domain abstractions
 
 ### Infrastructure Layer
 
-Responsible for external systems and technical implementations.
+Responsible for technical implementations and external dependencies.
 
-* Entity Framework Core
-* SQL Server
-* Repository implementations
-* Database configurations
-* Authentication implementations
-* Password hashing
-* JWT token generation
-* Logging infrastructure
-* External infrastructure dependencies
-
----
+- AppDbContext
+- Entity Framework Core
+- SQL Server
+- Repository implementations
+- Entity configurations
+- Authentication implementations
+- Password hashing
+- JWT token generation
+- Logging infrastructure (Serilog)
+- External infrastructure integrations
 
 # 🧩 Architectural Patterns & Principles
 
@@ -233,11 +266,14 @@ Repositories encapsulate database access.
 Example:
 
 ```text
+Application
+      ↓
 IRoleRepository
       ↓
+Infrastructure
 RoleRepository
       ↓
-EF Core / DbContext
+Entity Framework Core
       ↓
 SQL Server
 ```
@@ -249,6 +285,7 @@ This keeps persistence concerns outside the Application layer.
 ## Dependency Injection
 
 ASP.NET Core built-in Dependency Injection is used throughout the application.
+Concrete implementations are registered in the API project's composition root (Program.cs), while the implementations themselves reside in the Infrastructure layer.
 
 Example:
 
@@ -345,7 +382,8 @@ Logging includes:
 * SQL Server logging
 * Structured logging
 * Exception logging
-* TraceId correlation
+* TraceId 
+* Request Logging
 
 ---
 
@@ -459,7 +497,7 @@ The focus of Sprint 12A was:
 * Custom Authorization Handler
 * Custom Permission Attribute
 * Permission-Protected Product APIs
-* Repository support for loading user permissions
+* Repository support for resolving user permissions through assigned roles
 
 ---
 
@@ -693,15 +731,18 @@ API Access
 Management:
 
 ```text
-Management
-
 Role Management
         ↓
 Permission Management
         ↓
-Role Permission Assignment
+Role ↔ Permission Assignment
+        ↓
+User ↔ Role Assignment
         ↓
 Permission-Based Authorization
+```
+
+---
 
 # 🧪 Validation & Quality Checks
 
@@ -709,6 +750,7 @@ Before committing changes, the project follows basic quality checks such as:
 
 ```bash
 dotnet build
+dotnet test
 ```
 
 Git validation:
@@ -724,30 +766,29 @@ EnterpriseInventory.UnitTests
 EnterpriseInventory.IntegrationTests
 ```
 
----
-
 # 🌿 Git Branching Strategy
 
-The project uses feature/sprint-based Git branches.
+The project uses **feature/sprint-based Git branches**.
 
 Examples:
 
 ```text
 main
 
-
 feature/sprint-8-fluentvalidation
 feature/sprint-9-automapper
-feature/sprint-10-enterprise-logging
+feature/sprint-10-global-exception-handling
+feature/sprint-10.1-enterprise-logging
 feature/sprint-11-jwt-authentication
 
 feature/sprint-12a-permission-authorization
 feature/sprint-12b-role-management
 feature/sprint-12c-permission-management
-feature/sprint-12d-user-permission-overrides
-feature/sprint-12e-permission-audit
-
+feature/sprint-12d-user-role-assignment
+feature/sprint-12e-user-permission-overrides
+feature/sprint-12f-permission-audit
 ```
+
 
 The project follows a commit-oriented development approach where significant architectural or functional changes are kept in separate commits.
 
@@ -789,9 +830,33 @@ This approach ensures that the project is not simply a collection of APIs but a 
 
 ---
 
-# ⏳ Sprint 12D – User-Specific Permission Overrides
+# ✅ Sprint 12D – User ↔ Role Assignment
 
-Sprint 12D introduces fine-grained permission customization at the individual user level.
+Sprint 12D extends the RBAC system by introducing enterprise-grade **User ↔ Role Assignment** management.
+
+Administrators can assign one or more roles to users, replace existing role assignments, and retrieve user-role relationships through secure, permission-protected APIs.
+
+### Implemented Features
+
+- User ↔ Role Assignment APIs
+- Retrieve all roles assigned to a user
+- Retrieve all users assigned to a role
+- Replace user role assignments
+- Multi-role support (Many-to-Many)
+- Role existence validation
+- User existence validation
+- Duplicate role prevention using FluentValidation
+- AutoMapper support for UserRole DTOs
+- Repository + Service layer implementation
+- Enterprise authorization using `HasPermission`
+- Comprehensive API testing and validation
+- Idempotent role replacement behavior
+
+---
+
+# ⏳ Sprint 12E – User-Specific Permission Overrides
+
+Sprint 12E introduces fine-grained permission customization at the individual user level.
 
 Instead of relying solely on permissions inherited through roles, administrators will be able to grant or deny permissions directly to specific users.
 
@@ -802,11 +867,13 @@ Instead of relying solely on permissions inherited through roles, administrators
 - User-specific permission APIs
 - Permission precedence rules
 - Effective permission calculation
-- JWT integration with overrides
+- JWT integration with permission overrides
 
-# ⏳ Sprint 12E – Permission Audit & Effective Permission APIs
+---
 
-Sprint 12E focuses on visibility and auditing of authorization.
+# ⏳ Sprint 12F – Permission Audit & Effective Permission APIs
+
+Sprint 12F focuses on visibility and auditing of authorization.
 
 Administrators will be able to inspect why a user has a permission and trace it back to its source.
 
@@ -822,40 +889,41 @@ Administrators will be able to inspect why a user has a permission and trace it 
 
 # 🛣 Project Roadmap
 
-| Sprint                                                 | Status         |
+| Sprint | Status |
 | ------------------------------------------------------ | -------------- |
-| Sprint 1 – Solution Architecture                       | ✅ Completed    |
-| Sprint 2 – Clean Architecture                          | ✅ Completed    |
-| Sprint 3 – Dependency Injection                        | ✅ Completed    |
-| Sprint 4 – Entity Framework Core                       | ✅ Completed    |
-| Sprint 5 – Repository Pattern                          | ✅ Completed    |
-| Sprint 6 – CRUD Foundation                             | ✅ Completed    |
-| Sprint 7 – Enterprise CRUD APIs                        | ✅ Completed    |
-| Sprint 8 – FluentValidation                            | ✅ Completed    |
-| Sprint 9 – AutoMapper                                  | ✅ Completed    |
-| Sprint 10 – Global Exception Handling                  | ✅ Completed    |
-| Sprint 10.1 – Enterprise Logging                       | ✅ Completed    |
-| Sprint 11 – JWT Authentication                         | ✅ Completed    |
+| Sprint 1 – Solution Architecture | ✅ Completed |
+| Sprint 2 – Clean Architecture | ✅ Completed |
+| Sprint 3 – Dependency Injection | ✅ Completed |
+| Sprint 4 – Entity Framework Core | ✅ Completed |
+| Sprint 5 – Repository Pattern | ✅ Completed |
+| Sprint 6 – CRUD Foundation | ✅ Completed |
+| Sprint 7 – Enterprise CRUD APIs | ✅ Completed |
+| Sprint 8 – FluentValidation | ✅ Completed |
+| Sprint 9 – AutoMapper | ✅ Completed |
+| Sprint 10 – Global Exception Handling | ✅ Completed |
+| Sprint 10.1 – Enterprise Logging | ✅ Completed |
+| Sprint 11 – JWT Authentication | ✅ Completed |
 | Sprint 12A – Enterprise Permission-Based Authorization | ✅ Completed |
 | Sprint 12B – Role Management | ✅ Completed |
 | Sprint 12C – Permission Management & Role-Permission Assignment | ✅ Completed |
-| Sprint 12D – User-Specific Permission Overrides | ⏳ Planned |
-| Sprint 12E – Permission Audit & Effective Permission APIs | ⏳ Planned |
-| Sprint 13 – Refresh Tokens                             | ⏳ Planned      |
-| Sprint 14 – Generic Repository Discussion              | ⏳ Planned      |
-| Sprint 15 – Unit of Work                               | ⏳ Planned      |
-| Sprint 16 – Pagination                                 | ⏳ Planned      |
-| Sprint 17 – Advanced EF Core Performance               | ⏳ Planned      |
-| Sprint 18 – Transactions                               | ⏳ Planned      |
-| Sprint 19 – Optimistic Concurrency                     | ⏳ Planned      |
-| Sprint 20 – Redis Caching                              | ⏳ Planned      |
-| Sprint 21 – Background Services                        | ⏳ Planned      |
-| Sprint 22 – RabbitMQ                                   | ⏳ Planned      |
-| Sprint 23 – Docker                                     | ⏳ Planned      |
-| Sprint 24 – Azure Deployment                           | ⏳ Planned      |
-| Sprint 25 – CI/CD                                      | ⏳ Planned      |
-| Sprint 26 – Production Readiness                       | ⏳ Planned      |
-| Sprint 27 – Enterprise React Frontend                  | ⏳ Planned      |
+| **Sprint 12D – User ↔ Role Assignment** | **✅ Completed** |
+| **Sprint 12E – User-Specific Permission Overrides** | **⏳ Planned** |
+| **Sprint 12F – Permission Audit & Effective Permission APIs** | **⏳ Planned** |
+| Sprint 13 – Refresh Tokens | ⏳ Planned |
+| Sprint 14 – Generic Repository Discussion | ⏳ Planned |
+| Sprint 15 – Unit of Work | ⏳ Planned |
+| Sprint 16 – Pagination | ⏳ Planned |
+| Sprint 17 – Advanced EF Core Performance | ⏳ Planned |
+| Sprint 18 – Transactions | ⏳ Planned |
+| Sprint 19 – Optimistic Concurrency | ⏳ Planned |
+| Sprint 20 – Redis Caching | ⏳ Planned |
+| Sprint 21 – Background Services | ⏳ Planned |
+| Sprint 22 – RabbitMQ | ⏳ Planned |
+| Sprint 23 – Docker | ⏳ Planned |
+| Sprint 24 – Azure Deployment | ⏳ Planned |
+| Sprint 25 – CI/CD | ⏳ Planned |
+| Sprint 26 – Production Readiness | ⏳ Planned |
+| Sprint 27 – Enterprise React Frontend | ⏳ Planned |
 
 ---
 
@@ -863,43 +931,66 @@ Administrators will be able to inspect why a user has a permission and trace it 
 
 The project currently demonstrates:
 
-* Clean Architecture
-* SOLID Principles
-* Dependency Injection
-* Repository Pattern
-* REST API Design
-* DTO Pattern
-* Entity Framework Core
-* SQL Server
-* FluentValidation
-* AutoMapper
-* Global Exception Handling
-* Custom Exceptions
-* Enterprise Logging
-* Serilog
-* Structured Logging
-* TraceId Correlation
-* JWT Authentication
-* Claims-Based Identity
-* Options Pattern
-* Role-Based Access Control (RBAC)
-* Permission-Based Authorization
-* Dynamic Authorization Policies
-* Custom Authorization Requirements
-* Custom Authorization Handlers
-* Custom Permission Attributes
-* Security Seeders
-* Role CRUD Management
-* Permission CRUD Management
-* Role-Permission Assignment
-* Bootstrap Administrator Protection
-* Enterprise RBAC Management
-* Fine-Grained Permission Management
-* API Documentation with Swagger/OpenAPI
-* Feature-Oriented Organization
-* Professional Git Branching
-* Commit-Oriented Development
----
+### Architecture & Design
+- Clean Architecture
+- SOLID Principles
+- Feature-Oriented Organization
+- Dependency Injection
+- Repository Pattern
+- DTO Pattern
+- REST API Design
+
+### Data Access
+- Entity Framework Core
+- Entity Framework Core Fluent Configuration
+- SQL Server
+- AutoMapper
+
+### Validation & Error Handling
+- FluentValidation
+- Global Exception Handling
+- Custom Exceptions
+- Standardized API Responses
+
+### Logging & Observability
+- Enterprise Logging
+- Serilog
+- Structured Logging
+- TraceId Correlation
+
+### Authentication
+- JWT Authentication
+- Claims-Based Identity
+- Options Pattern
+
+### Authorization (RBAC)
+- Role-Based Access Control (RBAC)
+- Permission-Based Authorization
+- Dynamic Authorization Policies
+- Custom Authorization Requirements
+- Custom Authorization Handlers
+- Custom Permission Attributes
+- Dynamic Policy Provider
+
+### Security Management
+- Security Seeders
+- Bootstrap Administrator Protection
+
+### RBAC Administration
+- Role CRUD Management
+- Permission CRUD Management
+- Role-Permission Assignment
+- User-Role Assignment
+- Enterprise RBAC Management
+- Multi-Role User Support
+- Fine-Grained Permission Management
+
+### API & Development Practices
+- API Documentation with Swagger/OpenAPI
+- Professional Git Branching
+- Commit-Oriented Development
+- Sprint-Based Incremental Development
+- Enterprise Layered Validation (Controller → Validator → Service → Repository)
 
 # 👨‍💻 Development Philosophy
 
@@ -971,7 +1062,7 @@ Permission Management
       ↓
 Role Permission Assignment
       ↓
-User Permission Overrides
+User-Specific Permission Overrides
       ↓
 Permission Audit & Effective Permission Analysis
       ↓
@@ -1010,7 +1101,7 @@ React Frontend
 
 The ultimate goal of **Enterprise Inventory Management API** is to build a realistic enterprise backend while developing a deep understanding of:
 
-**ASP.NET Core + Clean Architecture + SOLID + Design Patterns + Security + Database Architecture + Performance + Distributed Systems + DevOps**
+**ASP.NET Core + Clean Architecture + SOLID + Design Patterns + Security + Database Architecture + Performance + Distributed Systems + Cloud + DevOps**
 
 rather than simply learning how to create CRUD endpoints.
 
