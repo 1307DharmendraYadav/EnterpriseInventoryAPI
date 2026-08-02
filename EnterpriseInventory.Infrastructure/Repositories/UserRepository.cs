@@ -22,6 +22,11 @@ public class UserRepository : IUserRepository
         return _context.Users.AnyAsync(u => u.Email == email);
     }
 
+    public async Task<User?> GetByIdAsync(int id)
+    {
+        return await _context.Users.FindAsync(id);
+    }
+
     public async Task<User?> GetByLoginAsync(string login)
     {
         return await _context.Users
@@ -81,4 +86,5 @@ public class UserRepository : IUserRepository
 
             .ToListAsync();
     }
+    
 }

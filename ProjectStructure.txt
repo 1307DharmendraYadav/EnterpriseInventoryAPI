@@ -1,0 +1,1078 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 4E71-5B6E
+D:.
+¦   .gitignore
+¦   AuthenticationMasterAPI.slnx
+¦   ProjectStructure.txt
+¦   README - Copy.md
+¦   README.md
+¦   Sprint12A-Completion.md
+¦   
++---.github
+¦   +---workflows
++---EnterpriseInventory.API
+¦   ¦   appsettings.Development.json
+¦   ¦   appsettings.json
+¦   ¦   EnterpriseInventory.API.csproj
+¦   ¦   EnterpriseInventory.API.csproj.user
+¦   ¦   EnterpriseInventory.API.http
+¦   ¦   libman.json
+¦   ¦   Program.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦           ¦   appsettings.Development.json
+¦   ¦           ¦   appsettings.json
+¦   ¦           ¦   AutoMapper.dll
+¦   ¦           ¦   EnterpriseInventory.API.deps.json
+¦   ¦           ¦   EnterpriseInventory.API.dll
+¦   ¦           ¦   EnterpriseInventory.API.exe
+¦   ¦           ¦   EnterpriseInventory.API.pdb
+¦   ¦           ¦   EnterpriseInventory.API.runtimeconfig.json
+¦   ¦           ¦   EnterpriseInventory.API.staticwebassets.endpoints.json
+¦   ¦           ¦   EnterpriseInventory.Application.dll
+¦   ¦           ¦   EnterpriseInventory.Application.pdb
+¦   ¦           ¦   EnterpriseInventory.Domain.dll
+¦   ¦           ¦   EnterpriseInventory.Domain.pdb
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.dll
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.pdb
+¦   ¦           ¦   EnterpriseInventory.Shared.dll
+¦   ¦           ¦   EnterpriseInventory.Shared.pdb
+¦   ¦           ¦   FluentValidation.AspNetCore.dll
+¦   ¦           ¦   FluentValidation.DependencyInjectionExtensions.dll
+¦   ¦           ¦   FluentValidation.dll
+¦   ¦           ¦   Humanizer.dll
+¦   ¦           ¦   libman.json
+¦   ¦           ¦   Microsoft.AspNetCore.Authentication.JwtBearer.dll
+¦   ¦           ¦   Microsoft.AspNetCore.OpenApi.dll
+¦   ¦           ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦           ¦   Microsoft.Build.Framework.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.CSharp.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.Workspaces.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.Extensions.Abstractions.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.Internal.Logging.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.Abstractions.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.Design.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.Relational.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.SqlServer.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyModel.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦           ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦           ¦   Microsoft.OpenApi.dll
+¦   ¦           ¦   Microsoft.SqlServer.Server.dll
+¦   ¦           ¦   Microsoft.VisualStudio.SolutionPersistence.dll
+¦   ¦           ¦   Mono.TextTemplating.dll
+¦   ¦           ¦   Newtonsoft.Json.dll
+¦   ¦           ¦   Serilog.AspNetCore.dll
+¦   ¦           ¦   Serilog.dll
+¦   ¦           ¦   Serilog.Extensions.Hosting.dll
+¦   ¦           ¦   Serilog.Extensions.Logging.dll
+¦   ¦           ¦   Serilog.Formatting.Compact.dll
+¦   ¦           ¦   Serilog.Settings.Configuration.dll
+¦   ¦           ¦   Serilog.Sinks.Console.dll
+¦   ¦           ¦   Serilog.Sinks.Debug.dll
+¦   ¦           ¦   Serilog.Sinks.File.dll
+¦   ¦           ¦   Serilog.Sinks.MSSqlServer.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.Swagger.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.SwaggerGen.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.SwaggerUI.dll
+¦   ¦           ¦   System.CodeDom.dll
+¦   ¦           ¦   System.Composition.AttributedModel.dll
+¦   ¦           ¦   System.Composition.Convention.dll
+¦   ¦           ¦   System.Composition.Hosting.dll
+¦   ¦           ¦   System.Composition.Runtime.dll
+¦   ¦           ¦   System.Composition.TypedParts.dll
+¦   ¦           ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦           ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦           ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   
+¦   ¦           +---BuildHost-net472
+¦   ¦           ¦   ¦   Microsoft.Build.Locator.dll
+¦   ¦           ¦   ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe
+¦   ¦           ¦   ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe.config
+¦   ¦           ¦   ¦   Microsoft.IO.Redist.dll
+¦   ¦           ¦   ¦   Newtonsoft.Json.dll
+¦   ¦           ¦   ¦   System.Buffers.dll
+¦   ¦           ¦   ¦   System.Collections.Immutable.dll
+¦   ¦           ¦   ¦   System.CommandLine.dll
+¦   ¦           ¦   ¦   System.Memory.dll
+¦   ¦           ¦   ¦   System.Numerics.Vectors.dll
+¦   ¦           ¦   ¦   System.Runtime.CompilerServices.Unsafe.dll
+¦   ¦           ¦   ¦   System.Threading.Tasks.Extensions.dll
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---cs
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---de
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---es
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---fr
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---it
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ja
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ko
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pl
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pt-BR
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ru
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---tr
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---zh-Hans
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---zh-Hant
+¦   ¦           ¦           System.CommandLine.resources.dll
+¦   ¦           ¦           
+¦   ¦           +---BuildHost-netcore
+¦   ¦           ¦   ¦   Microsoft.Build.Locator.dll
+¦   ¦           ¦   ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json
+¦   ¦           ¦   ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+¦   ¦           ¦   ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json
+¦   ¦           ¦   ¦   Newtonsoft.Json.dll
+¦   ¦           ¦   ¦   System.Collections.Immutable.dll
+¦   ¦           ¦   ¦   System.CommandLine.dll
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---cs
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---de
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---es
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---fr
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---it
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ja
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ko
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pl
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---pt-BR
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---ru
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---tr
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---zh-Hans
+¦   ¦           ¦   ¦       System.CommandLine.resources.dll
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---zh-Hant
+¦   ¦           ¦           System.CommandLine.resources.dll
+¦   ¦           ¦           
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---runtimes
+¦   ¦           ¦   +---unix
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net9.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net9.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win-arm64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x86
+¦   ¦           ¦       +---native
+¦   ¦           ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦               
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦                   Microsoft.Data.SqlClient.resources.dll
+¦   ¦                   
+¦   +---Controllers
+¦   ¦       AuthController.cs
+¦   ¦       PermissionController.cs
+¦   ¦       ProductController.cs
+¦   ¦       RoleController.cs
+¦   ¦       RolePermissionController.cs
+¦   ¦       
+¦   +---Helpers
+¦   ¦       ApiResponseFactory.cs
+¦   ¦       
+¦   +---logs
+¦   ¦       log-20260719.txt
+¦   ¦       log-20260730.txt
+¦   ¦       log-20260731.txt
+¦   ¦       
+¦   +---Middleware
+¦   ¦       ExceptionMiddleware.cs
+¦   ¦       
+¦   +---Models
+¦   ¦       ApiResponse.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   EnterpriseInventory.API.csproj.nuget.dgspec.json
+¦   ¦   ¦   EnterpriseInventory.API.csproj.nuget.g.props
+¦   ¦   ¦   EnterpriseInventory.API.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦           ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+¦   ¦           ¦   ApiEndpoints.json
+¦   ¦           ¦   apphost.exe
+¦   ¦           ¦   Enterpri.CF8B4310.Up2Date
+¦   ¦           ¦   EnterpriseInventory.API.AssemblyInfo.cs
+¦   ¦           ¦   EnterpriseInventory.API.AssemblyInfoInputs.cache
+¦   ¦           ¦   EnterpriseInventory.API.assets.cache
+¦   ¦           ¦   EnterpriseInventory.API.csproj.AssemblyReference.cache
+¦   ¦           ¦   EnterpriseInventory.API.csproj.BuildWithSkipAnalyzers
+¦   ¦           ¦   EnterpriseInventory.API.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   EnterpriseInventory.API.csproj.FileListAbsolute.txt
+¦   ¦           ¦   EnterpriseInventory.API.dll
+¦   ¦           ¦   EnterpriseInventory.API.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   EnterpriseInventory.API.genruntimeconfig.cache
+¦   ¦           ¦   EnterpriseInventory.API.GlobalUsings.g.cs
+¦   ¦           ¦   EnterpriseInventory.API.MvcApplicationPartsAssemblyInfo.cache
+¦   ¦           ¦   EnterpriseInventory.API.MvcApplicationPartsAssemblyInfo.cs
+¦   ¦           ¦   EnterpriseInventory.API.pdb
+¦   ¦           ¦   EnterpriseInventory.API.sourcelink.json
+¦   ¦           ¦   rjsmcshtml.dswa.cache.json
+¦   ¦           ¦   rjsmrazor.dswa.cache.json
+¦   ¦           ¦   rpswa.dswa.cache.json
+¦   ¦           ¦   staticwebassets.build.endpoints.json
+¦   ¦           ¦   staticwebassets.build.json
+¦   ¦           ¦   staticwebassets.build.json.cache
+¦   ¦           ¦   staticwebassets.references.upToDateCheck.txt
+¦   ¦           ¦   staticwebassets.removed.txt
+¦   ¦           ¦   swae.build.ex.cache
+¦   ¦           ¦   
+¦   ¦           +---EndpointInfo
+¦   ¦           ¦       EnterpriseInventory.API.json
+¦   ¦           ¦       EnterpriseInventory.API.OpenApiFiles.cache
+¦   ¦           ¦       
+¦   ¦           +---ref
+¦   ¦           ¦       EnterpriseInventory.API.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦           ¦       EnterpriseInventory.API.dll
+¦   ¦           ¦       
+¦   ¦           +---staticwebassets
+¦   +---Properties
+¦           launchSettings.json
+¦           
++---EnterpriseInventory.Application
+¦   ¦   EnterpriseInventory.Application.csproj
+¦   ¦   
+¦   +---Authorization
+¦   ¦   +---Attributes
+¦   ¦   ¦       HasPermissionAttribute.cs
+¦   ¦   ¦       
+¦   ¦   +---Constants
+¦   ¦   ¦       ClaimConstants.cs
+¦   ¦   ¦       CriticalPermissionConstants.cs
+¦   ¦   ¦       PermissionConstants.cs
+¦   ¦   ¦       RoleConstants.cs
+¦   ¦   ¦       
+¦   ¦   +---Handlers
+¦   ¦   ¦       PermissionAuthorizationHandler.cs
+¦   ¦   ¦       
+¦   ¦   +---PolicyProviders
+¦   ¦   ¦       PermissionPolicyProvider.cs
+¦   ¦   ¦       
+¦   ¦   +---Requirements
+¦   ¦           PermissionRequirement.cs
+¦   ¦           
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦               EnterpriseInventory.Application.deps.json
+¦   ¦               EnterpriseInventory.Application.dll
+¦   ¦               EnterpriseInventory.Application.pdb
+¦   ¦               EnterpriseInventory.Domain.dll
+¦   ¦               EnterpriseInventory.Domain.pdb
+¦   ¦               EnterpriseInventory.Shared.dll
+¦   ¦               EnterpriseInventory.Shared.pdb
+¦   ¦               
+¦   +---Common
+¦   ¦   +---Settings
+¦   ¦           DefaultAdminSettings.cs
+¦   ¦           JwtSettings.cs
+¦   ¦           
+¦   +---Configuration
+¦   +---DependencyInjection
+¦   ¦       ApplicationServiceRegistration.cs
+¦   ¦       
+¦   +---DTOs
+¦   ¦       CreateProductRequest.cs
+¦   ¦       ProductResponse.cs
+¦   ¦       UpdateProductRequest.cs
+¦   ¦       
+¦   +---Exceptions
+¦   ¦       ConflictException.cs
+¦   ¦       ForbiddenException.cs
+¦   ¦       NotFoundException.cs
+¦   ¦       UnauthorizedException.cs
+¦   ¦       ValidationException.cs
+¦   ¦       
+¦   +---Features
+¦   ¦   +---Authentication
+¦   ¦   ¦   +---DTOs
+¦   ¦   ¦   ¦       JwtTokenResult.cs
+¦   ¦   ¦   ¦       LoginRequest.cs
+¦   ¦   ¦   ¦       LoginResponse.cs
+¦   ¦   ¦   ¦       RegisterRequest.cs
+¦   ¦   ¦   ¦       RegisterResponse.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Interfaces
+¦   ¦   ¦   ¦       IAuthService.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Services
+¦   ¦   ¦           AuthService.cs
+¦   ¦   ¦           
+¦   ¦   +---Permissions
+¦   ¦   ¦   +---DTOs
+¦   ¦   ¦   ¦       CreatePermissionRequest.cs
+¦   ¦   ¦   ¦       PermissionResponse.cs
+¦   ¦   ¦   ¦       UpdatePermissionRequest.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Interfaces
+¦   ¦   ¦   ¦       IPermissionService.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Mappings
+¦   ¦   ¦   ¦       PermissionProfile.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Services
+¦   ¦   ¦   ¦       PermissionService.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Validators
+¦   ¦   ¦           CreatePermissionRequestValidator.cs
+¦   ¦   ¦           UpdatePermissionRequestValidator.cs
+¦   ¦   ¦           
+¦   ¦   +---RolePermissions
+¦   ¦   ¦   +---DTOs
+¦   ¦   ¦   ¦       AssignedPermissionResponse.cs
+¦   ¦   ¦   ¦       AssignPermissionsRequest.cs
+¦   ¦   ¦   ¦       RolePermissionResponse.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Interfaces
+¦   ¦   ¦   ¦       IRolePermissionService.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Services
+¦   ¦   ¦   ¦       RolePermissionService.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Validators
+¦   ¦   ¦           AssignPermissionsRequestValidator.cs
+¦   ¦   ¦           
+¦   ¦   +---Roles
+¦   ¦   ¦   +---DTOs
+¦   ¦   ¦   ¦       CreateRoleRequest.cs
+¦   ¦   ¦   ¦       RoleResponse.cs
+¦   ¦   ¦   ¦       UpdateRoleRequest.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Interfaces
+¦   ¦   ¦   ¦       IRoleService.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Mappings
+¦   ¦   ¦   ¦       RoleProfile.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Services
+¦   ¦   ¦   ¦       RoleService.cs
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---Validators
+¦   ¦   ¦           CreateRoleRequestValidator.cs
+¦   ¦   ¦           UpdateRoleRequestValidator.cs
+¦   ¦   ¦           
+¦   ¦   +---UserRole
+¦   ¦       +---DTOs
+¦   ¦       ¦       ReplaceUserRolesRequest.cs
+¦   ¦       ¦       UserRoleResponse.cs
+¦   ¦       ¦       
+¦   ¦       +---Interfaces
+¦   ¦       ¦       IUserRoleService.cs
+¦   ¦       ¦       
+¦   ¦       +---Mappings
+¦   ¦       ¦       UserRoleProfile.cs
+¦   ¦       ¦       
+¦   ¦       +---Services
+¦   ¦       ¦       UserRoleService.cs
+¦   ¦       ¦       
+¦   ¦       +---Validators
+¦   ¦               ReplaceUserRolesRequestValidator.cs
+¦   ¦               
+¦   +---Interfaces
+¦   ¦   ¦   IProductService.cs
+¦   ¦   ¦   
+¦   ¦   +---Repositories
+¦   ¦   ¦       IPermissionRepository.cs
+¦   ¦   ¦       IProductRepository.cs
+¦   ¦   ¦       IRolePermissionRepository.cs
+¦   ¦   ¦       IRoleRepository.cs
+¦   ¦   ¦       IUserRepository.cs
+¦   ¦   ¦       IUserRoleRepository.cs
+¦   ¦   ¦       
+¦   ¦   +---Security
+¦   ¦           IJwtTokenGenerator.cs
+¦   ¦           IPasswordHasher.cs
+¦   ¦           
+¦   +---Mappings
+¦   ¦       AuthenticationProfile.cs
+¦   ¦       ProductProfile.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   EnterpriseInventory.Application.csproj.nuget.dgspec.json
+¦   ¦   ¦   EnterpriseInventory.Application.csproj.nuget.g.props
+¦   ¦   ¦   EnterpriseInventory.Application.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦           ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+¦   ¦           ¦   Enterpri.4C83FFC1.Up2Date
+¦   ¦           ¦   EnterpriseInventory.Application.AssemblyInfo.cs
+¦   ¦           ¦   EnterpriseInventory.Application.AssemblyInfoInputs.cache
+¦   ¦           ¦   EnterpriseInventory.Application.assets.cache
+¦   ¦           ¦   EnterpriseInventory.Application.csproj.AssemblyReference.cache
+¦   ¦           ¦   EnterpriseInventory.Application.csproj.BuildWithSkipAnalyzers
+¦   ¦           ¦   EnterpriseInventory.Application.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   EnterpriseInventory.Application.csproj.FileListAbsolute.txt
+¦   ¦           ¦   EnterpriseInventory.Application.dll
+¦   ¦           ¦   EnterpriseInventory.Application.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   EnterpriseInventory.Application.GlobalUsings.g.cs
+¦   ¦           ¦   EnterpriseInventory.Application.pdb
+¦   ¦           ¦   EnterpriseInventory.Application.sourcelink.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       EnterpriseInventory.Application.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   EnterpriseInventory.Application.dll
+¦   ¦                   
+¦   +---Services
+¦   ¦       ProductService.cs
+¦   ¦       
+¦   +---Validators
+¦           CreateProductRequestValidator.cs
+¦           UpdateProductRequestValidator.cs
+¦           
++---EnterpriseInventory.Domain
+¦   ¦   EnterpriseInventory.Domain.csproj
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦               EnterpriseInventory.Domain.deps.json
+¦   ¦               EnterpriseInventory.Domain.dll
+¦   ¦               EnterpriseInventory.Domain.pdb
+¦   ¦               
+¦   +---Common
+¦   ¦       BaseEntity.cs
+¦   ¦       
+¦   +---Entities
+¦   ¦       Permission.cs
+¦   ¦       Product.cs
+¦   ¦       Role.cs
+¦   ¦       RolePermission.cs
+¦   ¦       User.cs
+¦   ¦       UserRole.cs
+¦   ¦       
+¦   +---Enums
+¦   +---Events
+¦   +---obj
+¦   ¦   ¦   EnterpriseInventory.Domain.csproj.nuget.dgspec.json
+¦   ¦   ¦   EnterpriseInventory.Domain.csproj.nuget.g.props
+¦   ¦   ¦   EnterpriseInventory.Domain.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦           ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+¦   ¦           ¦   EnterpriseInventory.Domain.AssemblyInfo.cs
+¦   ¦           ¦   EnterpriseInventory.Domain.AssemblyInfoInputs.cache
+¦   ¦           ¦   EnterpriseInventory.Domain.assets.cache
+¦   ¦           ¦   EnterpriseInventory.Domain.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   EnterpriseInventory.Domain.csproj.FileListAbsolute.txt
+¦   ¦           ¦   EnterpriseInventory.Domain.dll
+¦   ¦           ¦   EnterpriseInventory.Domain.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   EnterpriseInventory.Domain.GlobalUsings.g.cs
+¦   ¦           ¦   EnterpriseInventory.Domain.pdb
+¦   ¦           ¦   EnterpriseInventory.Domain.sourcelink.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       EnterpriseInventory.Domain.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   EnterpriseInventory.Domain.dll
+¦   ¦                   
+¦   +---ValueObjects
++---EnterpriseInventory.Infrastructure
+¦   ¦   EnterpriseInventory.Infrastructure.csproj
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦               EnterpriseInventory.Application.dll
+¦   ¦               EnterpriseInventory.Application.pdb
+¦   ¦               EnterpriseInventory.Domain.dll
+¦   ¦               EnterpriseInventory.Domain.pdb
+¦   ¦               EnterpriseInventory.Infrastructure.deps.json
+¦   ¦               EnterpriseInventory.Infrastructure.dll
+¦   ¦               EnterpriseInventory.Infrastructure.pdb
+¦   ¦               EnterpriseInventory.Infrastructure.runtimeconfig.json
+¦   ¦               EnterpriseInventory.Shared.dll
+¦   ¦               EnterpriseInventory.Shared.pdb
+¦   ¦               
+¦   +---DependencyInjection
+¦   ¦       InfrastructureServiceRegistration.cs
+¦   ¦       
+¦   +---Extensions
+¦   +---Migrations
+¦   ¦       20260627103134_InitialCreate.cs
+¦   ¦       20260627103134_InitialCreate.Designer.cs
+¦   ¦       20260712121355_AddUserAuthentication.cs
+¦   ¦       20260712121355_AddUserAuthentication.Designer.cs
+¦   ¦       20260721021124_AddRolesAndUserRoles.cs
+¦   ¦       20260721021124_AddRolesAndUserRoles.Designer.cs
+¦   ¦       20260725073937_AddRolePermissionConfiguration.cs
+¦   ¦       20260725073937_AddRolePermissionConfiguration.Designer.cs
+¦   ¦       ApplicationDbContextModelSnapshot.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   EnterpriseInventory.Infrastructure.csproj.nuget.dgspec.json
+¦   ¦   ¦   EnterpriseInventory.Infrastructure.csproj.nuget.g.props
+¦   ¦   ¦   EnterpriseInventory.Infrastructure.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦           ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+¦   ¦           ¦   Enterpri.11DFBC1C.Up2Date
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.AssemblyInfo.cs
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.AssemblyInfoInputs.cache
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.assets.cache
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.csproj.AssemblyReference.cache
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.csproj.BuildWithSkipAnalyzers
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.csproj.FileListAbsolute.txt
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.dll
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.genruntimeconfig.cache
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.GlobalUsings.g.cs
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.pdb
+¦   ¦           ¦   EnterpriseInventory.Infrastructure.sourcelink.json
+¦   ¦           ¦   kl5xdehy.sql
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       EnterpriseInventory.Infrastructure.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   EnterpriseInventory.Infrastructure.dll
+¦   ¦                   
+¦   +---Persistence
+¦   ¦   +---Configurations
+¦   ¦   ¦       PermissionConfiguration.cs
+¦   ¦   ¦       ProductConfiguration.cs
+¦   ¦   ¦       RoleConfiguration.cs
+¦   ¦   ¦       RolePermissionConfiguration.cs
+¦   ¦   ¦       UserConfiguration.cs
+¦   ¦   ¦       UserRoleConfiguration.cs
+¦   ¦   ¦       
+¦   ¦   +---Context
+¦   ¦   ¦       ApplicationDbContext.cs
+¦   ¦   ¦       
+¦   ¦   +---Migrations
+¦   +---Repositories
+¦   ¦       PermissionRepository.cs
+¦   ¦       ProductRepository.cs
+¦   ¦       RolePermissionRepository.cs
+¦   ¦       RoleRepository.cs
+¦   ¦       UserRepository.cs
+¦   ¦       UserRoleRepository.cs
+¦   ¦       
+¦   +---Security
+¦   ¦       JwtTokenGenerator.cs
+¦   ¦       PasswordHasher.cs
+¦   ¦       
+¦   +---Seed
+¦       ¦   DatabaseInitializer.cs
+¦       ¦   
+¦       +---Security
+¦               AdminUserSeeder.cs
+¦               PermissionSeeder.cs
+¦               RolePermissionSeeder.cs
+¦               RoleSeeder.cs
+¦               UserRoleSeeder.cs
+¦               
++---EnterpriseInventory.IntegrationTests
+¦   ¦   EnterpriseInventory.IntegrationTests.csproj
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦           ¦   EnterpriseInventory.IntegrationTests.deps.json
+¦   ¦           ¦   EnterpriseInventory.IntegrationTests.dll
+¦   ¦           ¦   EnterpriseInventory.IntegrationTests.pdb
+¦   ¦           ¦   EnterpriseInventory.IntegrationTests.runtimeconfig.json
+¦   ¦           ¦   Microsoft.TestPlatform.CommunicationUtilities.dll
+¦   ¦           ¦   Microsoft.TestPlatform.CoreUtilities.dll
+¦   ¦           ¦   Microsoft.TestPlatform.CrossPlatEngine.dll
+¦   ¦           ¦   Microsoft.TestPlatform.PlatformAbstractions.dll
+¦   ¦           ¦   Microsoft.TestPlatform.Utilities.dll
+¦   ¦           ¦   Microsoft.VisualStudio.CodeCoverage.Shim.dll
+¦   ¦           ¦   Microsoft.VisualStudio.TestPlatform.Common.dll
+¦   ¦           ¦   Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+¦   ¦           ¦   Newtonsoft.Json.dll
+¦   ¦           ¦   testhost.dll
+¦   ¦           ¦   testhost.exe
+¦   ¦           ¦   xunit.abstractions.dll
+¦   ¦           ¦   xunit.assert.dll
+¦   ¦           ¦   xunit.core.dll
+¦   ¦           ¦   xunit.execution.dotnet.dll
+¦   ¦           ¦   xunit.runner.visualstudio.testadapter.dll
+¦   ¦           ¦   
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦                   Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦                   Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦                   Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦                   Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦                   
+¦   +---obj
+¦       ¦   EnterpriseInventory.IntegrationTests.csproj.nuget.dgspec.json
+¦       ¦   EnterpriseInventory.IntegrationTests.csproj.nuget.g.props
+¦       ¦   EnterpriseInventory.IntegrationTests.csproj.nuget.g.targets
+¦       ¦   project.assets.json
+¦       ¦   project.nuget.cache
+¦       ¦   
+¦       +---Debug
+¦           +---net10.0
+¦               ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+¦               ¦   Enterpri.17A23746.Up2Date
+¦               ¦   EnterpriseInventory.IntegrationTests.AssemblyInfo.cs
+¦               ¦   EnterpriseInventory.IntegrationTests.AssemblyInfoInputs.cache
+¦               ¦   EnterpriseInventory.IntegrationTests.assets.cache
+¦               ¦   EnterpriseInventory.IntegrationTests.csproj.AssemblyReference.cache
+¦               ¦   EnterpriseInventory.IntegrationTests.csproj.CoreCompileInputs.cache
+¦               ¦   EnterpriseInventory.IntegrationTests.csproj.FileListAbsolute.txt
+¦               ¦   EnterpriseInventory.IntegrationTests.dll
+¦               ¦   EnterpriseInventory.IntegrationTests.GeneratedMSBuildEditorConfig.editorconfig
+¦               ¦   EnterpriseInventory.IntegrationTests.genruntimeconfig.cache
+¦               ¦   EnterpriseInventory.IntegrationTests.GlobalUsings.g.cs
+¦               ¦   EnterpriseInventory.IntegrationTests.pdb
+¦               ¦   EnterpriseInventory.IntegrationTests.sourcelink.json
+¦               ¦   
+¦               +---ref
+¦               ¦       EnterpriseInventory.IntegrationTests.dll
+¦               ¦       
+¦               +---refint
+¦                       EnterpriseInventory.IntegrationTests.dll
+¦                       
++---EnterpriseInventory.Shared
+¦   ¦   EnterpriseInventory.Shared.csproj
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦               EnterpriseInventory.Shared.deps.json
+¦   ¦               EnterpriseInventory.Shared.dll
+¦   ¦               EnterpriseInventory.Shared.pdb
+¦   ¦               
+¦   +---obj
+¦       ¦   EnterpriseInventory.Shared.csproj.nuget.dgspec.json
+¦       ¦   EnterpriseInventory.Shared.csproj.nuget.g.props
+¦       ¦   EnterpriseInventory.Shared.csproj.nuget.g.targets
+¦       ¦   project.assets.json
+¦       ¦   project.nuget.cache
+¦       ¦   
+¦       +---Debug
+¦           +---net10.0
+¦               ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+¦               ¦   EnterpriseInventory.Shared.AssemblyInfo.cs
+¦               ¦   EnterpriseInventory.Shared.AssemblyInfoInputs.cache
+¦               ¦   EnterpriseInventory.Shared.assets.cache
+¦               ¦   EnterpriseInventory.Shared.csproj.CoreCompileInputs.cache
+¦               ¦   EnterpriseInventory.Shared.csproj.FileListAbsolute.txt
+¦               ¦   EnterpriseInventory.Shared.dll
+¦               ¦   EnterpriseInventory.Shared.GeneratedMSBuildEditorConfig.editorconfig
+¦               ¦   EnterpriseInventory.Shared.GlobalUsings.g.cs
+¦               ¦   EnterpriseInventory.Shared.pdb
+¦               ¦   EnterpriseInventory.Shared.sourcelink.json
+¦               ¦   
+¦               +---ref
+¦               ¦       EnterpriseInventory.Shared.dll
+¦               ¦       
+¦               +---refint
+¦                       EnterpriseInventory.Shared.dll
+¦                       
++---EnterpriseInventory.UnitTests
+    ¦   EnterpriseInventory.UnitTests.csproj
+    ¦   
+    +---bin
+    ¦   +---Debug
+    ¦       +---net10.0
+    ¦           ¦   EnterpriseInventory.UnitTests.deps.json
+    ¦           ¦   EnterpriseInventory.UnitTests.dll
+    ¦           ¦   EnterpriseInventory.UnitTests.pdb
+    ¦           ¦   EnterpriseInventory.UnitTests.runtimeconfig.json
+    ¦           ¦   Microsoft.TestPlatform.CommunicationUtilities.dll
+    ¦           ¦   Microsoft.TestPlatform.CoreUtilities.dll
+    ¦           ¦   Microsoft.TestPlatform.CrossPlatEngine.dll
+    ¦           ¦   Microsoft.TestPlatform.PlatformAbstractions.dll
+    ¦           ¦   Microsoft.TestPlatform.Utilities.dll
+    ¦           ¦   Microsoft.VisualStudio.CodeCoverage.Shim.dll
+    ¦           ¦   Microsoft.VisualStudio.TestPlatform.Common.dll
+    ¦           ¦   Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+    ¦           ¦   Newtonsoft.Json.dll
+    ¦           ¦   testhost.dll
+    ¦           ¦   testhost.exe
+    ¦           ¦   xunit.abstractions.dll
+    ¦           ¦   xunit.assert.dll
+    ¦           ¦   xunit.core.dll
+    ¦           ¦   xunit.execution.dotnet.dll
+    ¦           ¦   xunit.runner.visualstudio.testadapter.dll
+    ¦           ¦   
+    ¦           +---cs
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---de
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---es
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---fr
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---it
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---ja
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---ko
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---pl
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---pt-BR
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---ru
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---tr
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---zh-Hans
+    ¦           ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦           ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦           ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦           ¦       
+    ¦           +---zh-Hant
+    ¦                   Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+    ¦                   Microsoft.TestPlatform.CoreUtilities.resources.dll
+    ¦                   Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+    ¦                   Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+    ¦                   Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+    ¦                   
+    +---obj
+        ¦   EnterpriseInventory.UnitTests.csproj.nuget.dgspec.json
+        ¦   EnterpriseInventory.UnitTests.csproj.nuget.g.props
+        ¦   EnterpriseInventory.UnitTests.csproj.nuget.g.targets
+        ¦   project.assets.json
+        ¦   project.nuget.cache
+        ¦   
+        +---Debug
+            +---net10.0
+                ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+                ¦   Enterpri.2DCB4EA3.Up2Date
+                ¦   EnterpriseInventory.UnitTests.AssemblyInfo.cs
+                ¦   EnterpriseInventory.UnitTests.AssemblyInfoInputs.cache
+                ¦   EnterpriseInventory.UnitTests.assets.cache
+                ¦   EnterpriseInventory.UnitTests.csproj.AssemblyReference.cache
+                ¦   EnterpriseInventory.UnitTests.csproj.CoreCompileInputs.cache
+                ¦   EnterpriseInventory.UnitTests.csproj.FileListAbsolute.txt
+                ¦   EnterpriseInventory.UnitTests.dll
+                ¦   EnterpriseInventory.UnitTests.GeneratedMSBuildEditorConfig.editorconfig
+                ¦   EnterpriseInventory.UnitTests.genruntimeconfig.cache
+                ¦   EnterpriseInventory.UnitTests.GlobalUsings.g.cs
+                ¦   EnterpriseInventory.UnitTests.pdb
+                ¦   EnterpriseInventory.UnitTests.sourcelink.json
+                ¦   
+                +---ref
+                ¦       EnterpriseInventory.UnitTests.dll
+                ¦       
+                +---refint
+                        EnterpriseInventory.UnitTests.dll
+                        

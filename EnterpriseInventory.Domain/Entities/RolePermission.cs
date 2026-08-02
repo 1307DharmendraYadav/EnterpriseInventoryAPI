@@ -1,4 +1,4 @@
-﻿using EnterpriseInventory.Domain.Entities;
+﻿namespace EnterpriseInventory.Domain.Entities;
 
 public class RolePermission
 {

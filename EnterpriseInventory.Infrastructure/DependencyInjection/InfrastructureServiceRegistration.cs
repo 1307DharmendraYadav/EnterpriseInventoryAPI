@@ -43,6 +43,7 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IPermissionRepository, PermissionRepository>();
         services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
+        services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
         // ============================================================
         // SECURITY
