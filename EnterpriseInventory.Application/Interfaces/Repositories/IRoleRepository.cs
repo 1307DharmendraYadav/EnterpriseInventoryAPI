@@ -20,4 +20,6 @@ public interface IRoleRepository
     Task<bool> ExistsByNameAsync(string name);
 
     Task<bool> ExistsByNameExcludingIdAsync(string name, int id);
+
+    Task<IReadOnlyCollection<int>> GetExistingRoleIdsAsync(IEnumerable<int> ids);
 }

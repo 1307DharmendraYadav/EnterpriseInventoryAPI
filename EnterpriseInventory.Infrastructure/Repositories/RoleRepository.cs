@@ -65,4 +65,12 @@ public sealed class RoleRepository : IRoleRepository
         return await _context.Roles
             .AnyAsync(r => r.Name == name && r.Id != id);
     }
+
+    public async Task<IReadOnlyCollection<int>> GetExistingRoleIdsAsync(IEnumerable<int> ids)
+    {
+        return await _context.Roles
+            .Where(r => ids.Contains(r.Id))
+            .Select(r => r.Id)
+            .ToListAsync();
+    }
 }

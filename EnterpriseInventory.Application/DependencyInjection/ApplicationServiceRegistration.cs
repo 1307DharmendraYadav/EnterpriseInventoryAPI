@@ -5,8 +5,11 @@ using EnterpriseInventory.Application.Features.Authentication.Services;
 using EnterpriseInventory.Application.Features.Permissions.Interfaces;
 using EnterpriseInventory.Application.Features.Permissions.Services;
 using EnterpriseInventory.Application.Features.RolePermissions.Interfaces;
+using EnterpriseInventory.Application.Features.RolePermissions.Services;
 using EnterpriseInventory.Application.Features.Roles.Interfaces;
 using EnterpriseInventory.Application.Features.Roles.Services;
+using EnterpriseInventory.Application.Features.UserRole.Interfaces;
+using EnterpriseInventory.Application.Features.UserRole.Services;
 using EnterpriseInventory.Application.Interfaces;
 using EnterpriseInventory.Application.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -56,6 +59,21 @@ public static class ApplicationServiceRegistration
         // ============================================================
 
         services.AddScoped<IRolePermissionService, RolePermissionService>();
+
+        // ============================================================
+        // USER-ROLE MANAGEMENT (RBAC USER ASSIGNMENT)
+        // ============================================================
+        // Handles assigning roles to users and retrieving user-role mappings.
+        // Example:
+        // User -> UserRole -> Role
+        //
+        // Used for:
+        // - Assigning roles during user creation/update
+        // - Loading user permissions during authentication
+        // - Supporting Role-Based Access Control (RBAC)
+        // ============================================================
+
+        services.AddScoped<IUserRoleService, UserRoleService>();
 
         return services;
     }

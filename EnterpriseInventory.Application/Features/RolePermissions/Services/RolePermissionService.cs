@@ -3,6 +3,9 @@ using EnterpriseInventory.Application.Exceptions;
 using EnterpriseInventory.Application.Features.RolePermissions.DTOs;
 using EnterpriseInventory.Application.Features.RolePermissions.Interfaces;
 using EnterpriseInventory.Application.Interfaces.Repositories;
+using EnterpriseInventory.Domain.Entities;
+
+namespace EnterpriseInventory.Application.Features.RolePermissions.Services;
 
 public sealed class RolePermissionService : IRolePermissionService
 {
