@@ -19,10 +19,10 @@
 
 | Item | Status |
 | --------------------- | ------------------------------------------------------------- |
-| Current Sprint | ⏳ Sprint 12E – User-Specific Permission Overrides |
-| Last Completed Sprint | ✅ Sprint 12D – User ↔ Role Assignment |
+| Current Sprint | ⏳ Sprint 12F – Permission Audit & Effective Permission APIs |
+| Last Completed Sprint | ✅ Sprint 12E – User-Specific Permission Overrides |
 | Project Status | 🚀 Active Development |
-| Current Focus | Implementing User-Specific Permission Overrides |
+| Current Focus | Implementing Permission Audit & Effective Permission APIs |
 
 ### Sprint 12 Progress
 
@@ -34,6 +34,7 @@
 | 12C | Role ↔ Permission Assignment APIs | ✅ Completed |
 | 12C | Bootstrap Administrator Protection | ✅ Completed |
 | 12D | User ↔ Role Assignment APIs | ✅ Completed |
+| 12E | User-Specific Permission Overrides (CRUD APIs) | ✅ Completed |
 
 # 🛠 Tech Stack
 
@@ -854,11 +855,11 @@ Administrators can assign one or more roles to users, replace existing role assi
 
 ---
 
-# ⏳ Sprint 12E – User-Specific Permission Overrides
+# ✅ Sprint 12E – User-Specific Permission Overrides
 
 Sprint 12E introduces fine-grained permission customization at the individual user level.
 
-Instead of relying solely on permissions inherited through roles, administrators will be able to grant or deny permissions directly to specific users.
+Instead of relying solely on permissions inherited through roles, administrators are able to grant or deny permissions directly to specific users, independent of their role-based permissions.
 
 ### Planned Features
 
@@ -907,7 +908,7 @@ Administrators will be able to inspect why a user has a permission and trace it 
 | Sprint 12B – Role Management | ✅ Completed |
 | Sprint 12C – Permission Management & Role-Permission Assignment | ✅ Completed |
 | **Sprint 12D – User ↔ Role Assignment** | **✅ Completed** |
-| **Sprint 12E – User-Specific Permission Overrides** | **⏳ Planned** |
+| **Sprint 12E – User-Specific Permission Overrides** | **✅ Completed** |
 | **Sprint 12F – Permission Audit & Effective Permission APIs** | **⏳ Planned** |
 | Sprint 13 – Refresh Tokens | ⏳ Planned |
 | Sprint 14 – Generic Repository Discussion | ⏳ Planned |
