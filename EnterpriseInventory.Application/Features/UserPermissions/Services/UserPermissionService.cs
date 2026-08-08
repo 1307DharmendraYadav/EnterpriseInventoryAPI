@@ -102,7 +102,6 @@ public sealed class UserPermissionService : IUserPermissionService
                 "A permission override already exists for this user.");
         }
 
-        //var entity = _mapper.Map<UserPermission>(request);
         var entity = new UserPermission
         {
             UserId = userId,

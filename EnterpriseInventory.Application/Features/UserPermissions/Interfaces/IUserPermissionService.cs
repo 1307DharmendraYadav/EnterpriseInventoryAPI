@@ -8,7 +8,6 @@ public interface IUserPermissionService
 
     Task<UserPermissionResponse?> GetAsync(int userId, int permissionId);
 
-    //Task<UserPermissionResponse> CreateAsync(CreateUserPermissionRequest request);
     Task<UserPermissionResponse> CreateAsync(int userId,CreateUserPermissionRequest request);
 
     Task<UserPermissionResponse> UpdateAsync(int userId,int permissionId,UpdateUserPermissionRequest request);

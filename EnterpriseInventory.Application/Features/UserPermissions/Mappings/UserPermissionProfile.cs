@@ -11,9 +11,6 @@ public sealed class UserPermissionProfile : Profile
         // Entity -> Response DTO
         CreateMap<UserPermission, UserPermissionResponse>();
 
-        // Create Request -> Entity
-        CreateMap<CreateUserPermissionRequest, UserPermission>();
-
         // Update Request -> Existing Entity
         CreateMap<UpdateUserPermissionRequest, UserPermission>()
             .ForMember(d => d.Id, o => o.Ignore())
