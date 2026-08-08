@@ -1,0 +1,132 @@
+﻿using EnterpriseInventory.API.Helpers;
+using EnterpriseInventory.Application.Authorization;
+using EnterpriseInventory.Application.Authorization.Attributes;
+using EnterpriseInventory.Application.Features.UserPermissions.DTOs;
+using EnterpriseInventory.Application.Features.UserPermissions.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EnterpriseInventory.API.Controllers
+{
+    /// <summary>
+    /// Provides APIs for managing user-specific permission overrides.
+    /// </summary>
+    [Authorize]
+    [ApiController]
+    [Route("api/users/{userId:int}/permissions")]
+    public sealed class UserPermissionsController : ControllerBase
+    {
+        private readonly IUserPermissionService _userPermissionService;
+
+        public UserPermissionsController(
+            IUserPermissionService userPermissionService)
+        {
+            _userPermissionService = userPermissionService;
+        }
+
+        /// <summary>
+        /// Retrieves all permission overrides assigned directly to a user.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <returns>User permission overrides.</returns>
+        [HttpGet]
+        [HasPermission(PermissionConstants.UserPermission.View)]
+        public async Task<ActionResult<IEnumerable<UserPermissionResponse>>> GetByUserId(int userId)
+        {
+            var userPermissions = await _userPermissionService.GetByUserIdAsync(userId);
+            return Ok(ApiResponseFactory.Success(
+                userPermissions,
+                "User permissions retrieved successfully.",
+                StatusCodes.Status200OK,
+                HttpContext.TraceIdentifier));
+        }
+
+        /// <summary>
+        /// Retrieves a specific permission override assigned to a user.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <param name="permissionId">Permission identifier.</param>
+        /// <returns>User permission override.</returns>
+        [HttpGet("{permissionId:int}")]
+        [HasPermission(PermissionConstants.UserPermission.View)]
+        public async Task<ActionResult<UserPermissionResponse>> Get(int userId, int permissionId)
+        {
+            var userPermission = await _userPermissionService.GetAsync(
+                userId,
+                permissionId);
+
+            return Ok(ApiResponseFactory.Success(
+                userPermission,
+                "User permission retrieved successfully.",
+                StatusCodes.Status200OK,
+                HttpContext.TraceIdentifier));
+        }
+
+
+        /// <summary>
+        /// Creates a new permission override for a user.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <param name="request">Permission override request.</param>
+        /// <returns>Created permission override.</returns>
+        [HttpPost]
+        [HasPermission(PermissionConstants.UserPermission.Create)]
+        public async Task<ActionResult<UserPermissionResponse>> Create(int userId, CreateUserPermissionRequest request)
+        {
+            var created = await _userPermissionService.CreateAsync(
+                userId,
+                request);
+
+            return CreatedAtAction(
+                nameof(Get),
+                new
+                {
+                    userId = created.UserId,
+                    permissionId = created.PermissionId
+                },
+                ApiResponseFactory.Success(
+                    created,
+                    "User permission created successfully.",
+                    StatusCodes.Status201Created,
+                    HttpContext.TraceIdentifier));
+        }
+
+
+        /// <summary>
+        /// Updates an existing user-specific permission override.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <param name="permissionId">Permission identifier.</param>
+        /// <param name="request">Updated permission override.</param>
+        [HttpPut("{permissionId:int}")]
+        [HasPermission(PermissionConstants.UserPermission.Update)]
+        public async Task<IActionResult> Update(int userId, int permissionId, UpdateUserPermissionRequest request)
+        {
+            var updated = await _userPermissionService.UpdateAsync(userId, permissionId, request);
+
+            return Ok(ApiResponseFactory.Success(
+                updated,
+                "User permission updated successfully.",
+                StatusCodes.Status200OK,
+                HttpContext.TraceIdentifier));
+        }
+
+        /// <summary>
+        /// Removes a permission override from a user.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <param name="permissionId">Permission identifier.</param>
+        [HttpDelete("{permissionId:int}")]
+        [HasPermission(PermissionConstants.UserPermission.Delete)]
+        public async Task<IActionResult> Delete(int userId, int permissionId)
+        {
+            await _userPermissionService.DeleteAsync(userId, permissionId);
+
+            return Ok(ApiResponseFactory.Success(
+                data: (object?)null,
+                "User permission deleted successfully.",
+                StatusCodes.Status200OK,
+                HttpContext.TraceIdentifier));
+        }
+    }
+}

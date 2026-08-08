@@ -8,6 +8,8 @@ using EnterpriseInventory.Application.Features.RolePermissions.Interfaces;
 using EnterpriseInventory.Application.Features.RolePermissions.Services;
 using EnterpriseInventory.Application.Features.Roles.Interfaces;
 using EnterpriseInventory.Application.Features.Roles.Services;
+using EnterpriseInventory.Application.Features.UserPermissions.Interfaces;
+using EnterpriseInventory.Application.Features.UserPermissions.Services;
 using EnterpriseInventory.Application.Features.UserRole.Interfaces;
 using EnterpriseInventory.Application.Features.UserRole.Services;
 using EnterpriseInventory.Application.Interfaces;
@@ -34,13 +36,9 @@ public static class ApplicationServiceRegistration
         // AUTHORIZATION
         // ============================================================
 
-        services.AddSingleton<
-            IAuthorizationPolicyProvider,
-            PermissionPolicyProvider>();
+        services.AddSingleton<IAuthorizationPolicyProvider,PermissionPolicyProvider>();
 
-        services.AddSingleton<
-            IAuthorizationHandler,
-            PermissionAuthorizationHandler>();
+        services.AddSingleton<IAuthorizationHandler,PermissionAuthorizationHandler>();
 
         // ============================================================
         // ROLE
@@ -74,6 +72,9 @@ public static class ApplicationServiceRegistration
         // ============================================================
 
         services.AddScoped<IUserRoleService, UserRoleService>();
+
+        // Sprint 12E
+        services.AddScoped<IUserPermissionService, UserPermissionService>();
 
         return services;
     }
