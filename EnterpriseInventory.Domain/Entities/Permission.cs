@@ -11,4 +11,7 @@ public class Permission : BaseEntity
     // Navigation Property
     public ICollection<RolePermission> RolePermissions { get; set; }
         = new List<RolePermission>();
+
+    public virtual ICollection<UserPermission> UserPermissions { get; set; }
+    = new HashSet<UserPermission>();
 }
