@@ -3,6 +3,8 @@ using EnterpriseInventory.Application.Authorization;
 using EnterpriseInventory.Application.Authorization.Attributes;
 using EnterpriseInventory.Application.Features.UserPermissions.DTOs;
 using EnterpriseInventory.Application.Features.UserPermissions.Interfaces;
+using EnterpriseInventory.Application.Features.EffectivePermissions.DTOs;
+using EnterpriseInventory.Application.Features.EffectivePermissions.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,11 +19,14 @@ namespace EnterpriseInventory.API.Controllers
     public sealed class UserPermissionsController : ControllerBase
     {
         private readonly IUserPermissionService _userPermissionService;
+        private readonly IEffectivePermissionService _effectivePermissionService;
 
         public UserPermissionsController(
-            IUserPermissionService userPermissionService)
+            IUserPermissionService userPermissionService,
+            IEffectivePermissionService effectivePermissionService)
         {
             _userPermissionService = userPermissionService;
+            _effectivePermissionService = effectivePermissionService;
         }
 
         /// <summary>
@@ -125,6 +130,29 @@ namespace EnterpriseInventory.API.Controllers
             return Ok(ApiResponseFactory.Success(
                 data: (object?)null,
                 "User permission deleted successfully.",
+                StatusCodes.Status200OK,
+                HttpContext.TraceIdentifier));
+        }
+
+
+        /// <summary>
+        /// Retrieves the effective permissions for a user after applying
+        /// role-based permissions and user-specific permission overrides.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <returns>The user's effective permissions.</returns>
+        [HttpGet("effective")]
+        [HasPermission(PermissionConstants.UserPermission.View)]
+        public async Task<ActionResult<IEnumerable<EffectivePermissionResponse>>>
+            GetEffectivePermissions(int userId)
+        {
+            var permissions =
+                await _effectivePermissionService
+                    .GetEffectivePermissionsAsync(userId);
+
+            return Ok(ApiResponseFactory.Success(
+                permissions,
+                "Effective permissions retrieved successfully.",
                 StatusCodes.Status200OK,
                 HttpContext.TraceIdentifier));
         }

@@ -2,6 +2,8 @@
 using EnterpriseInventory.Application.Authorization.PolicyProviders;
 using EnterpriseInventory.Application.Features.Authentication.Interfaces;
 using EnterpriseInventory.Application.Features.Authentication.Services;
+using EnterpriseInventory.Application.Features.EffectivePermissions.Interfaces;
+using EnterpriseInventory.Application.Features.EffectivePermissions.Services;
 using EnterpriseInventory.Application.Features.Permissions.Interfaces;
 using EnterpriseInventory.Application.Features.Permissions.Services;
 using EnterpriseInventory.Application.Features.RolePermissions.Interfaces;
@@ -75,6 +77,12 @@ public static class ApplicationServiceRegistration
 
         // Sprint 12E
         services.AddScoped<IUserPermissionService, UserPermissionService>();
+
+        // ============================================================
+        // EFFECTIVE PERMISSIONS - SPRINT 12F
+        // ============================================================
+
+        services.AddScoped<IEffectivePermissionService, EffectivePermissionService>();
 
         return services;
     }
