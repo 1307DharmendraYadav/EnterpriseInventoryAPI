@@ -19,10 +19,10 @@
 
 | Item | Status |
 | --------------------- | ------------------------------------------------------------- |
-| Current Sprint | ⏳ Sprint 12F – Permission Audit & Effective Permission APIs |
-| Last Completed Sprint | ✅ Sprint 12E – User-Specific Permission Overrides |
+| Current Sprint | 🔄 Sprint 12F – Permission Audit & Effective Permission APIs |
+| Last Completed Sprint | ✅ Sprint 12F-05 – Effective Permission API |
 | Project Status | 🚀 Active Development |
-| Current Focus | Implementing Permission Audit & Effective Permission APIs |
+| Current Focus | Implementing Permission Breakdown, Diagnostic & Audit APIs |
 
 ### Sprint 12 Progress
 
@@ -35,6 +35,11 @@
 | 12C | Bootstrap Administrator Protection | ✅ Completed |
 | 12D | User ↔ Role Assignment APIs | ✅ Completed |
 | 12E | User-Specific Permission Overrides (CRUD APIs) | ✅ Completed |
+| 12F-01 | Authorization Rules & Precedence | ✅ Completed |
+| 12F-02 | Effective Permission Model | ✅ Completed |
+| 12F-03 | Repository Queries | ✅ Completed |
+| 12F-04 | EffectivePermissionService | ✅ Completed |
+| 12F-05 | Effective Permission API | ✅ Completed |
 
 # 🛠 Tech Stack
 
@@ -861,7 +866,24 @@ Sprint 12E introduces fine-grained permission customization at the individual us
 
 Instead of relying solely on permissions inherited through roles, administrators are able to grant or deny permissions directly to specific users, independent of their role-based permissions.
 
-### Planned Features
+### Implemented Features
+
+- UserPermission entity
+- Allow/Deny permission model
+- User-specific permission APIs
+- Permission precedence rules
+- Effective permission calculation
+- JWT integration with permission overrides
+
+---
+
+# ✅ Sprint 12E – User-Specific Permission Overrides
+
+Sprint 12E introduces fine-grained permission customization at the individual user level.
+
+Instead of relying solely on permissions inherited through roles, administrators are able to grant or deny permissions directly to specific users, independent of their role-based permissions.
+
+### Implemented Features
 
 - UserPermission entity
 - Allow/Deny permission model
@@ -874,18 +896,24 @@ Instead of relying solely on permissions inherited through roles, administrators
 
 # ⏳ Sprint 12F – Permission Audit & Effective Permission APIs
 
-Sprint 12F focuses on visibility and auditing of authorization.
+Sprint 12F focuses on improving visibility, resolution, diagnostics, and auditing of authorization decisions.
 
-Administrators will be able to inspect why a user has a permission and trace it back to its source.
+Administrators and the authorization system can determine what permissions a user effectively has, which role or user override contributed to the result, and whether a permission is allowed or denied.
 
-### Planned Features
+### Sprint 12F Progress
 
-- Effective Permission APIs
-- Permission Audit APIs
-- Role inheritance visualization
-- User permission breakdown
-- Permission source tracking
-- Authorization diagnostics
+| Sprint | Capability | Status |
+|--------|------------|--------|
+| 12F-01 | Authorization Rules & Precedence | ✅ Completed |
+| 12F-02 | Effective Permission Model | ✅ Completed |
+| 12F-03 | Repository Queries | ✅ Completed |
+| 12F-04 | EffectivePermissionService | ✅ Completed |
+| 12F-05 | Effective Permission API | ✅ Completed |
+| 12F-06 | Permission Breakdown API | ⏳ Planned |
+| 12F-07 | Permission Diagnostic API | ⏳ Planned |
+| 12F-08 | Permission Audit API | ⏳ Planned |
+| 12F-09 | Protect APIs | ⏳ Planned |
+| 12F-10 | Tests & Hardening | ⏳ Planned |
 
 
 # 🛣 Project Roadmap
@@ -904,12 +932,12 @@ Administrators will be able to inspect why a user has a permission and trace it 
 | Sprint 10 – Global Exception Handling | ✅ Completed |
 | Sprint 10.1 – Enterprise Logging | ✅ Completed |
 | Sprint 11 – JWT Authentication | ✅ Completed |
-| Sprint 12A – Enterprise Permission-Based Authorization | ✅ Completed |
-| Sprint 12B – Role Management | ✅ Completed |
-| Sprint 12C – Permission Management & Role-Permission Assignment | ✅ Completed |
+| **Sprint 12A – Enterprise Permission-Based Authorization** | **✅ Completed** |
+| **Sprint 12B – Role Management** | **✅ Completed** |
+| **Sprint 12C – Permission Management & Role-Permission Assignment** | **✅ Completed** |
 | **Sprint 12D – User ↔ Role Assignment** | **✅ Completed** |
 | **Sprint 12E – User-Specific Permission Overrides** | **✅ Completed** |
-| **Sprint 12F – Permission Audit & Effective Permission APIs** | **⏳ Planned** |
+| **Sprint 12F – Permission Audit & Effective Permission APIs** | **🔄 In Progress** |
 | Sprint 13 – Refresh Tokens | ⏳ Planned |
 | Sprint 14 – Generic Repository Discussion | ⏳ Planned |
 | Sprint 15 – Unit of Work | ⏳ Planned |
