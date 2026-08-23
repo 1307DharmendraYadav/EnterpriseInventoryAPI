@@ -49,4 +49,33 @@ public sealed class RolePermissionRepository : IRolePermissionRepository
         _context.RolePermissions.RemoveRange(rolePermissions);
         await _context.SaveChangesAsync();
     }
+
+
+    /// <summary>
+    /// Returns Role-Permission mappings for all supplied roles,
+    /// including the associated Role and Permission entities.
+    ///
+    /// Used by Sprint 12F to determine:
+    /// - Which role granted a permission
+    /// - Which permission was granted
+    /// - The source of an effective permission
+    /// </summary>
+    public async Task<List<RolePermission>> GetByRoleIdsAsync(IEnumerable<int> roleIds)
+    {
+        var ids = roleIds
+            .Distinct()
+            .ToList();
+
+        if (ids.Count == 0)
+        {
+            return [];
+        }
+
+        return await _context.RolePermissions
+            .Where(rp => ids.Contains(rp.RoleId))
+            .Include(rp => rp.Role)
+            .Include(rp => rp.Permission)
+            .AsNoTracking()
+            .ToListAsync();
+    }
 }

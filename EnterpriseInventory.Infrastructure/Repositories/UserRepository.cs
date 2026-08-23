@@ -55,7 +55,7 @@ public class UserRepository : IUserRepository
     }
 
     /// <summary>
-    /// Retrieves all effective permissions assigned to the specified user.
+    /// Retrieves all permission names granted through the user's assigned roles.
     ///
     /// Permissions are resolved through:
     /// User → UserRoles → RolePermissions → Permissions
@@ -67,6 +67,7 @@ public class UserRepository : IUserRepository
     /// A read-only collection containing all effective permission names
     /// assigned to the user.
     /// </returns>
+    /// 
     public async Task<IReadOnlyCollection<string>> GetPermissionsAsync(int userId)
     {
         return await _context.UserRoles

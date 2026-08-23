@@ -2,6 +2,7 @@
 using EnterpriseInventory.Application.Exceptions;
 using EnterpriseInventory.Application.Features.Authentication.DTOs;
 using EnterpriseInventory.Application.Features.Authentication.Interfaces;
+using EnterpriseInventory.Application.Features.EffectivePermissions.Interfaces;
 using EnterpriseInventory.Application.Interfaces.Repositories;
 using EnterpriseInventory.Application.Interfaces.Security;
 using EnterpriseInventory.Domain.Entities;
@@ -14,17 +15,20 @@ public class AuthService : IAuthService
     private readonly IPasswordHasher _passwordHasher;
     private readonly IMapper _mapper;
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
+    private readonly IEffectivePermissionService _effectivePermissionService;
 
     public AuthService(
         IUserRepository userRepository,
         IPasswordHasher passwordHasher,
         IMapper mapper,
-        IJwtTokenGenerator jwtTokenGenerator)
+        IJwtTokenGenerator jwtTokenGenerator,
+        IEffectivePermissionService effectivePermissionService)
     {
         _userRepository = userRepository;
         _passwordHasher = passwordHasher;
         _mapper = mapper;
         _jwtTokenGenerator = jwtTokenGenerator;
+        _effectivePermissionService = effectivePermissionService;
     }
 
     public async Task<RegisterResponse> RegisterAsync(RegisterRequest request)
@@ -71,7 +75,7 @@ public class AuthService : IAuthService
                 "Invalid username or password.");
         }
 
-        var passwordValid =_passwordHasher.Verify(request.Password,user.PasswordHash);
+        var passwordValid = _passwordHasher.Verify(request.Password, user.PasswordHash);
 
         if (!passwordValid)
         {
@@ -85,10 +89,26 @@ public class AuthService : IAuthService
         var roles = await _userRepository.GetRolesAsync(user.Id);
 
         // Load all effective permissions assigned to the authenticated user.
-        var permissions = await _userRepository.GetPermissionsAsync(user.Id);
+        //var permissions = await _userRepository.GetPermissionsAsync(user.Id); 
+
+        // Calculate the user's final effective permissions,
+        // including role permissions and user-specific Allow/Deny overrides.
+        //
+        // The previous GetPermissionsAsync() repository method resolved
+        // role-based permissions only. Sprint 12F makes
+        // IEffectivePermissionService the source of truth for effective
+        // authorization decisions.
+        var effectivePermissions =
+            await _effectivePermissionService
+                .GetEffectivePermissionsAsync(user.Id);
+
+        var permissions = effectivePermissions
+            .Where(permission => permission.IsAllowed)
+            .Select(permission => permission.PermissionName)
+            .ToList();
 
         // Generate JWT containing identity, role and permission claims.
-        var jwtResult = _jwtTokenGenerator.GenerateToken(user,roles,permissions);
+        var jwtResult = _jwtTokenGenerator.GenerateToken(user, roles, permissions);
 
         response.Token = jwtResult.Token;
         response.ExpiresAtUtc = jwtResult.ExpiresAtUtc;

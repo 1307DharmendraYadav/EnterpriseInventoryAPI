@@ -24,6 +24,7 @@ public interface IRolePermissionRepository
     /// </summary>
     Task<List<int>> GetPermissionIdsByRoleIdAsync(int roleId);
 
+
     /// <summary>
     /// Removes all permission assignments for the specified role.
     /// Used before saving the newly selected permission list.
@@ -36,4 +37,14 @@ public interface IRolePermissionRepository
     /// a Role and a Permission.
     /// </summary>
     Task AddRangeAsync(IEnumerable<RolePermission> rolePermissions);
+
+
+    /// <summary>
+    /// Returns Role-Permission mappings for multiple roles,
+    /// including the associated Role and Permission entities.
+    ///
+    /// Used by the effective-permission calculation to determine
+    /// which role granted each permission.
+    /// </summary>
+    Task<List<RolePermission>> GetByRoleIdsAsync(IEnumerable<int> roleIds);
 }
