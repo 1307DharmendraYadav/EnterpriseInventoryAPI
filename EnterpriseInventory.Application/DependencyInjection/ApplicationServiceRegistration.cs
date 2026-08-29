@@ -84,6 +84,9 @@ public static class ApplicationServiceRegistration
 
         services.AddScoped<IEffectivePermissionService, EffectivePermissionService>();
 
+        // Sprint 12F-06
+        services.AddScoped<IPermissionBreakdownService, PermissionBreakdownService>();
+
         return services;
     }
 }

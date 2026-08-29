@@ -1,10 +1,11 @@
 ﻿using EnterpriseInventory.API.Helpers;
 using EnterpriseInventory.Application.Authorization;
 using EnterpriseInventory.Application.Authorization.Attributes;
-using EnterpriseInventory.Application.Features.UserPermissions.DTOs;
-using EnterpriseInventory.Application.Features.UserPermissions.Interfaces;
 using EnterpriseInventory.Application.Features.EffectivePermissions.DTOs;
 using EnterpriseInventory.Application.Features.EffectivePermissions.Interfaces;
+using EnterpriseInventory.Application.Features.EffectivePermissions.Services;
+using EnterpriseInventory.Application.Features.UserPermissions.DTOs;
+using EnterpriseInventory.Application.Features.UserPermissions.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,13 +21,16 @@ namespace EnterpriseInventory.API.Controllers
     {
         private readonly IUserPermissionService _userPermissionService;
         private readonly IEffectivePermissionService _effectivePermissionService;
+        private readonly IPermissionBreakdownService _permissionBreakdownService;
 
         public UserPermissionsController(
             IUserPermissionService userPermissionService,
-            IEffectivePermissionService effectivePermissionService)
+            IEffectivePermissionService effectivePermissionService,
+            IPermissionBreakdownService permissionBreakdownService)
         {
             _userPermissionService = userPermissionService;
             _effectivePermissionService = effectivePermissionService;
+            _permissionBreakdownService = permissionBreakdownService;
         }
 
         /// <summary>
@@ -153,6 +157,34 @@ namespace EnterpriseInventory.API.Controllers
             return Ok(ApiResponseFactory.Success(
                 permissions,
                 "Effective permissions retrieved successfully.",
+                StatusCodes.Status200OK,
+                HttpContext.TraceIdentifier));
+        }
+
+        /// <summary>
+        /// Retrieves the permission breakdown for a user.
+        /// Shows role contributions, user-specific override,
+        /// and the final effective permission.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <param name="permissionId">Permission identifier.</param>
+        /// <returns>Permission breakdown for the specified user and permission.</returns>
+        [HttpGet("{permissionId:int}/breakdown")]
+        [HasPermission(PermissionConstants.UserPermission.View)]
+        public async Task<ActionResult<PermissionBreakdownResponse>>
+            GetPermissionBreakdown(
+                int userId,
+                int permissionId)
+        {
+            var breakdown =
+                await _permissionBreakdownService
+                    .GetPermissionBreakdownAsync(
+                        userId,
+                        permissionId);
+
+            return Ok(ApiResponseFactory.Success(
+                breakdown,
+                "Permission breakdown retrieved successfully.",
                 StatusCodes.Status200OK,
                 HttpContext.TraceIdentifier));
         }

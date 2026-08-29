@@ -20,9 +20,9 @@
 | Item | Status |
 | --------------------- | ------------------------------------------------------------- |
 | Current Sprint | 🔄 Sprint 12F – Permission Audit & Effective Permission APIs |
-| Last Completed Sprint | ✅ Sprint 12F-05 – Effective Permission API |
+| Last Completed Sprint | ✅ Sprint 12F-06 – Permission Breakdown API |
 | Project Status | 🚀 Active Development |
-| Current Focus | Implementing Permission Breakdown, Diagnostic & Audit APIs |
+| Current Focus | Implementing Permission Diagnostic & Audit APIs |
 
 ### Sprint 12 Progress
 
@@ -40,6 +40,11 @@
 | 12F-03 | Repository Queries | ✅ Completed |
 | 12F-04 | EffectivePermissionService | ✅ Completed |
 | 12F-05 | Effective Permission API | ✅ Completed |
+| 12F-06 | Permission Breakdown API | ✅ Completed |
+| 12F-07 | Permission Diagnostic API | ⏳ Planned |
+| 12F-08 | Permission Audit API | ⏳ Planned |
+| 12F-09 | Protect APIs | ⏳ Planned |
+| 12F-10 | Tests & Hardening | ⏳ Planned |
 
 # 🛠 Tech Stack
 
@@ -909,7 +914,7 @@ Administrators and the authorization system can determine what permissions a use
 | 12F-03 | Repository Queries | ✅ Completed |
 | 12F-04 | EffectivePermissionService | ✅ Completed |
 | 12F-05 | Effective Permission API | ✅ Completed |
-| 12F-06 | Permission Breakdown API | ⏳ Planned |
+| 12F-06 | Permission Breakdown API | ✅ Completed |
 | 12F-07 | Permission Diagnostic API | ⏳ Planned |
 | 12F-08 | Permission Audit API | ⏳ Planned |
 | 12F-09 | Protect APIs | ⏳ Planned |
