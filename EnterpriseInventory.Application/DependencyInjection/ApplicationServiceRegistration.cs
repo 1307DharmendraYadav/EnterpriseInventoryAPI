@@ -82,10 +82,20 @@ public static class ApplicationServiceRegistration
         // EFFECTIVE PERMISSIONS - SPRINT 12F
         // ============================================================
 
-        services.AddScoped<IEffectivePermissionService, EffectivePermissionService>();
+        // Sprint 12F-05
+        // Calculates the user's final effective permissions
+        // after applying role permissions and user-specific overrides.
+        services.AddScoped<IEffectivePermissionService,EffectivePermissionService>();
 
         // Sprint 12F-06
-        services.AddScoped<IPermissionBreakdownService, PermissionBreakdownService>();
+        // Provides a detailed permission breakdown showing
+        // role contributions, user overrides, and final resolution.
+        services.AddScoped<IPermissionBreakdownService,PermissionBreakdownService>();
+
+        // Sprint 12F-07
+        // Provides diagnostic information explaining
+        // why a specific permission is allowed or denied.
+        services.AddScoped<IPermissionDiagnosticService,PermissionDiagnosticService>();
 
         return services;
     }

@@ -11,17 +11,20 @@ public sealed class PermissionBreakdownService : IPermissionBreakdownService
     private readonly IUserRoleRepository _userRoleRepository;
     private readonly IRolePermissionRepository _rolePermissionRepository;
     private readonly IUserPermissionRepository _userPermissionRepository;
+    private readonly IPermissionRepository _permissionRepository;
 
     public PermissionBreakdownService(
-        IUserRepository userRepository,
-        IUserRoleRepository userRoleRepository,
-        IRolePermissionRepository rolePermissionRepository,
-        IUserPermissionRepository userPermissionRepository)
+    IUserRepository userRepository,
+    IUserRoleRepository userRoleRepository,
+    IRolePermissionRepository rolePermissionRepository,
+    IUserPermissionRepository userPermissionRepository,
+    IPermissionRepository permissionRepository)
     {
         _userRepository = userRepository;
         _userRoleRepository = userRoleRepository;
         _rolePermissionRepository = rolePermissionRepository;
         _userPermissionRepository = userPermissionRepository;
+        _permissionRepository = permissionRepository;
     }
 
     public async Task<PermissionBreakdownResponse>
@@ -93,15 +96,17 @@ public sealed class PermissionBreakdownService : IPermissionBreakdownService
                 permission => permission.PermissionId == permissionId);
 
         // ============================================================
-        // 6. Validate permission exists in available data
+        // 6. Validate permission exists
+        //
+        // Permission existence is checked against the Permissions table,
+        // not against the user's role assignments or overrides.
+        //
+        // A permission can exist globally even when the user has neither
+        // a role-based grant nor a user-specific override.
         // ============================================================
 
-        var rolePermission = rolePermissions
-            .FirstOrDefault(
-                permission => permission.PermissionId == permissionId);
-
-        var permission = rolePermission?.Permission
-            ?? userOverride?.Permission;
+        var permission =
+            await _permissionRepository.GetByIdAsync(permissionId);
 
         if (permission is null)
         {
