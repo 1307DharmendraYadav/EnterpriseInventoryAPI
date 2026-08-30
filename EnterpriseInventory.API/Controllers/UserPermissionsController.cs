@@ -22,15 +22,18 @@ namespace EnterpriseInventory.API.Controllers
         private readonly IUserPermissionService _userPermissionService;
         private readonly IEffectivePermissionService _effectivePermissionService;
         private readonly IPermissionBreakdownService _permissionBreakdownService;
+        private readonly IPermissionDiagnosticService _permissionDiagnosticService;
 
         public UserPermissionsController(
             IUserPermissionService userPermissionService,
             IEffectivePermissionService effectivePermissionService,
-            IPermissionBreakdownService permissionBreakdownService)
+            IPermissionBreakdownService permissionBreakdownService,
+            IPermissionDiagnosticService permissionDiagnosticService)
         {
             _userPermissionService = userPermissionService;
             _effectivePermissionService = effectivePermissionService;
             _permissionBreakdownService = permissionBreakdownService;
+            _permissionDiagnosticService = permissionDiagnosticService;
         }
 
         /// <summary>
@@ -185,6 +188,35 @@ namespace EnterpriseInventory.API.Controllers
             return Ok(ApiResponseFactory.Success(
                 breakdown,
                 "Permission breakdown retrieved successfully.",
+                StatusCodes.Status200OK,
+                HttpContext.TraceIdentifier));
+        }
+
+
+        /// <summary>
+        /// Diagnoses the authorization result for a specific user permission.
+        /// Explains why the permission is allowed or denied, including
+        /// the effective source and resolution reason.
+        /// </summary>
+        /// <param name="userId">User identifier.</param>
+        /// <param name="permissionId">Permission identifier.</param>
+        /// <returns>Diagnostic information for the specified user permission.</returns>
+        [HttpGet("{permissionId:int}/diagnostic")]
+        [HasPermission(PermissionConstants.UserPermission.View)]
+        public async Task<ActionResult<PermissionDiagnosticResponse>>
+            GetPermissionDiagnostic(
+                int userId,
+                int permissionId)
+        {
+            var diagnostic =
+                await _permissionDiagnosticService
+                    .GetPermissionDiagnosticAsync(
+                        userId,
+                        permissionId);
+
+            return Ok(ApiResponseFactory.Success(
+                diagnostic,
+                "Permission diagnostic retrieved successfully.",
                 StatusCodes.Status200OK,
                 HttpContext.TraceIdentifier));
         }
